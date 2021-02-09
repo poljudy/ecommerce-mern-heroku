@@ -8,14 +8,9 @@
       "type": "image/x-icon"
     },
     {
-      "src": "zets.png",
+      "src": "logo.png",
       "type": "image/png",
-      "sizes": "192x192"
-    },
-    {
-      "src": "zets.png",
-      "type": "image/png",
-      "sizes": "512x512"
+      "sizes": "139x139"
     }
   ],
   "start_url": ".",

@@ -1,5 +1,18 @@
+@import url('https://fonts.googleapis.com/css2?family=Heebo:wght@100;200;300;400;500;600;700;800;900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Kaushan+Script&display=swap');
+
+:root {
+  --yellow-color: #f6d82a;
+}
+
+body {
+  font-family: 'Heebo', sans-serif;
+  font-size: 1rem;
+  line-height: 1.6;
+}
+
 main {
-  min-height: 80vh;
+  min-height: 81vh;
 }
 
 h3 {
@@ -49,5 +62,33 @@ h2 {
 @media (max-width: 900px) {
   .carousel-caption h2 {
     font-size: 2.5vw;
+  }
+}
+
+.logo-img {
+  width: 8rem;
+}
+
+.logo-text {
+  width: 6rem;
+}
+
+.in {
+  display: inline;
+}
+
+.yellow-text {
+  color: var(--yellow-color);
+}
+
+.text-logo {
+  font-family: 'Kaushan Script', cursive;
+  font-size: 4rem;
+  color: var(--yellow-color);
+}
+
+@media (max-width: 700px) {
+  .hide-sm {
+    display: none;
   }
 }
