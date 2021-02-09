@@ -1,5 +1,5 @@
 import { Link } from 'react-router-dom'
-import { Card, Button } from 'react-bootstrap'
+import { Card } from 'react-bootstrap'
 import PropTypes from 'prop-types'
 import Rating from './Rating'
 import AddToCartBtn from './AddToCartBtn'
