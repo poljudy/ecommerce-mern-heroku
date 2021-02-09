@@ -1,7 +1,8 @@
 import { Link } from 'react-router-dom'
-import { Card } from 'react-bootstrap'
+import { Card, Button } from 'react-bootstrap'
 import PropTypes from 'prop-types'
 import Rating from './Rating'
+import AddToCartBtn from './AddToCartBtn'
 
 const Product = ({ product }) => {
   return (
@@ -21,7 +22,11 @@ const Product = ({ product }) => {
             text={` מ-${product.numReviews} ביקורות`}
           />
         </Card.Text>
-        <Card.Text as='h5'>{product.price} ש"ח</Card.Text>
+        <Card.Text as='h5' className='mb-3'>
+          {product.price} ש"ח{' '}
+          <small>{product.countInStock === 0 && ` (חסר במלאי)`}</small>
+        </Card.Text>
+        <AddToCartBtn disabled={product.countInStock === 0} />
       </Card.Body>
     </Card>
   )

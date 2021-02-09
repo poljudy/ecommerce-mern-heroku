@@ -29,6 +29,12 @@ h2 {
   padding: 0.5rem 0;
 }
 
+.star {
+  background: -webkit-linear-gradient(#7deb94, #53dbb2 60%, #38d1c5);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
 .rating span {
   margin: 0.1rem;
 }
@@ -99,7 +105,7 @@ h2 {
 }
 
 .card-main {
-  height: 380px;
+  height: 420px;
 }
 
 .btn-brand {

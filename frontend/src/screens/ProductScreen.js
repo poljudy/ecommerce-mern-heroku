@@ -2,6 +2,7 @@ import { Link } from 'react-router-dom'
 import { Row, Col, Image, ListGroup, Card, Button } from 'react-bootstrap'
 import Rating from '../components/Rating'
 import products from '../products'
+import AddToCartBtn from '../components/AddToCartBtn'
 
 const ProductScreen = ({ match }) => {
   const product = products.find((product) => product._id === match.params.id)
@@ -54,13 +55,7 @@ const ProductScreen = ({ match }) => {
                 </Row>
               </ListGroup.Item>
               <ListGroup.Item>
-                <Button
-                  className='btn-block btn-brand'
-                  type='button'
-                  disabled={product.countInStock === 0}
-                >
-                  להוסיף לעגלה
-                </Button>
+                <AddToCartBtn disabled={product.countInStock === 0} />
               </ListGroup.Item>
             </ListGroup>
           </Card>

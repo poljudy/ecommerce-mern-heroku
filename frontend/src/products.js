@@ -14,10 +14,10 @@ const products = [
   },
   {
     _id: '2',
-    name: 'iPhone 11 Pro זיכרון 256GB',
+    name: 'iPhone 12 Pro 256GB Apple',
     image: '/images/phone.jpg',
     description:
-      'טלפון סלולרי אייפון Apple iPhone 11 128GB בצבע לבן, שנה אחריות היבואן הרשמי.',
+      'האייפון החדש מבית Apple בעל המפרט החזק והמגוון - להנות משילוב של הטכנולוגיה המתקדמת ביותר עם עיצוב מרשים בצבעים מדהימים. המכשיר שיהפוך כל פעולה לפשוטה יותר עבורכם!',
     brand: 'Apple',
     category: 'Electronics',
     price: '4,999.99',
@@ -40,13 +40,13 @@ const products = [
   },
   {
     _id: '4',
-    name: 'סוני פלייסטשן 4 Pro White Version',
+    name: 'Sony PlayStation 5 825GB Blu-ray סוני',
     image: '/images/playstation.jpg',
     description:
-      'PlayStation מבית סוני הינה קונסולת המשחקים הנמכרת בעולם ובישראל מעל לשני עשורים! בזכות גרפיקה פורצת דרך וטכנולוגיות מרשימות. שחקו און ליין עם חברים או בבית, בחרו ממאות המשחקים וגלו עולמות חדשים של פנטזיה, הרפתקאות , ספורט ולחימה עם דמויות שכבר מזמן הפכו לאייקוניות.',
+      'קונסולת הדור הבא כבר כאן! חוויית משחק חדשה בפתח! גרפיקה מדהימה ברזולוציית 4K ו- 8K בתמיכה מלאה עם HDR וקצב ריענון תמונה של עד FPS 120.',
     brand: 'Sony',
     category: 'Electronics',
-    price: '1,699.99',
+    price: '4,299.99',
     countInStock: 11,
     rating: 5,
     numReviews: 12,
