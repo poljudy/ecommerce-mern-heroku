@@ -1,3 +1,4 @@
+import { LinkContainer as Link } from 'react-router-bootstrap'
 import { Navbar, Nav, Container } from 'react-bootstrap'
 import logo from '../images/logo.png'
 
@@ -6,20 +7,26 @@ const Header = () => {
     <header>
       <Navbar bg='primary' className='navbar-dark' expand='lg' collapseOnSelect>
         <Container>
-          <Navbar.Brand className='mr-n4' href='/'>
-            <Navbar.Brand>
-              <img src={logo} alt='logo' className='logo-img' />
+          <Link to='/'>
+            <Navbar.Brand className='mr-n4'>
+              <Navbar.Brand>
+                <img src={logo} alt='logo' className='logo-img' />
+              </Navbar.Brand>
             </Navbar.Brand>
-          </Navbar.Brand>
+          </Link>
           <Navbar.Toggle aria-controls='basic-navbar-nav' />
           <Navbar.Collapse id='basic-navbar-nav'>
             <Nav className='mr-auto'>
-              <Nav.Link href='/login'>
-                <i className='fas fa-user'></i> הרשמה
-              </Nav.Link>
-              <Nav.Link href='/cart'>
-                <i className='fas fa-shopping-cart'></i> עגלת קניות
-              </Nav.Link>
+              <Link to='/login'>
+                <Nav.Link>
+                  <i className='fas fa-user'></i> הרשמה
+                </Nav.Link>
+              </Link>
+              <Link to='/cart'>
+                <Nav.Link>
+                  <i className='fas fa-shopping-cart'></i> עגלת קניות
+                </Nav.Link>
+              </Link>
             </Nav>
           </Navbar.Collapse>
         </Container>

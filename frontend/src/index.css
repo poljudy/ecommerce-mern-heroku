@@ -65,6 +65,11 @@ h2 {
   }
 }
 
+.small {
+  font-size: 80%;
+  font-weight: 400;
+}
+
 .logo-img {
   width: 8rem;
 }
@@ -91,4 +96,29 @@ h2 {
   .hide-sm {
     display: none;
   }
+}
+
+.card-main {
+  height: 380px;
+}
+
+.btn-brand {
+  background-image: linear-gradient(#7deb94, #53dbb2 60%, #38d1c5);
+  background-repeat: no-repeat;
+  -webkit-filter: none;
+  filter: none;
+  color: #214638;
+  text-shadow: 0 0 0 rgb(0 0 0 / 0%);
+  font-weight: 700;
+}
+
+.btn-brand:not([disabled]):not(.disabled):hover,
+.btn-brand:not([disabled]):not(.disabled):focus,
+.btn-brand:not([disabled]):not(.disabled):active,
+.btn-brand:not([disabled]):not(.disabled).active {
+  background-image: linear-gradient(#7deb94, #62c462 60%, #53be53);
+  background-repeat: no-repeat;
+  -webkit-filter: none;
+  filter: none;
+  color: #fff;
 }

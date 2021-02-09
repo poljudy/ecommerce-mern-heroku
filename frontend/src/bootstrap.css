@@ -5114,7 +5114,6 @@ input[type='button'].btn-block {
   background-clip: border-box;
   border: 1px solid rgba(0, 0, 0, 0.6);
   border-radius: 0.25rem;
-  height: 380px;
 }
 
 .card > hr {
