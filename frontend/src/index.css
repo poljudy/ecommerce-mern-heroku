@@ -65,9 +65,26 @@ h2 {
 .carousel a {
   margin: 0 auto;
 }
+
 @media (max-width: 900px) {
   .carousel-caption h2 {
     font-size: 2.5vw;
+  }
+}
+
+@media (max-width: 1000px) {
+  .toast-sm {
+    left: 11.5rem !important;
+  }
+}
+
+@media (max-width: 770px) {
+  .mt-4-sm {
+    margin-top: 1.5rem !important;
+  }
+
+  .toast-sm {
+    left: 5.5rem !important;
   }
 }
 
@@ -102,10 +119,23 @@ h2 {
   .hide-sm {
     display: none;
   }
+
+  .mt-4-sm {
+    margin-top: 1.5rem !important;
+  }
 }
 
 .card-main {
   height: 420px;
+}
+
+.alert-brand {
+  background-image: linear-gradient(#7deb94, #53dbb2 60%, #38d1c5);
+}
+
+.brand {
+  background-image: linear-gradient(#7deb94, #53dbb2 60%, #38d1c5);
+  color: #214638;
 }
 
 .btn-brand {
@@ -127,4 +157,24 @@ h2 {
   -webkit-filter: none;
   filter: none;
   color: #fff;
+}
+
+.alert {
+  width: 55%;
+  display: block;
+  margin: auto;
+  text-align: center;
+}
+
+.toast {
+  width: 8.44rem;
+  text-align: center;
+  position: absolute;
+  top: 1.37rem;
+  left: -1rem;
+}
+
+.btn-link {
+  color: #fff;
+  text-decoration: underline;
 }

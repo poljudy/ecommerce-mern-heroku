@@ -1,8 +1,14 @@
+import { useSelector } from 'react-redux'
 import { LinkContainer as Link } from 'react-router-bootstrap'
 import { Navbar, Nav, Container } from 'react-bootstrap'
 import logo from '../images/logo.png'
+import CartToast from './CartToast'
 
 const Header = () => {
+  const cart = useSelector((state) => state.cart)
+
+  const { cartItems, toast } = cart
+
   return (
     <header>
       <Navbar bg='primary' className='navbar-dark' expand='lg' collapseOnSelect>
@@ -24,11 +30,17 @@ const Header = () => {
               </Link>
               <Link to='/cart'>
                 <Nav.Link>
-                  <i className='fas fa-shopping-cart'></i> עגלת קניות
+                  <i className='fas fa-shopping-cart'></i> עגלת קניות{' '}
+                  {cartItems.length > 0 &&
+                    `(${cartItems.reduce(
+                      (acc, item) => acc + Number(item.qty),
+                      0
+                    )})`}
                 </Nav.Link>
               </Link>
             </Nav>
-          </Navbar.Collapse>
+          </Navbar.Collapse>{' '}
+          {toast && <CartToast />}
         </Container>
       </Navbar>
     </header>
