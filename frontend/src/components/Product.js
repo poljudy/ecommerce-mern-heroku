@@ -6,13 +6,13 @@ import AddToCartBtn from './AddToCartBtn'
 
 const Product = ({ product, history }) => {
   return (
-    <Card className='my-3 p-3 rounded card-main'>
+    <Card className='my-3 p-3 rounded card-main card-main-sm card-main-md'>
       <Link to={`/product/${product._id}`}>
         <Card.Img src={product.image} vatiant='top' alt={product.name} />
       </Link>
       <Card.Body>
         <Link to={`/product/${product._id}`}>
-          <Card.Title as='div'>
+          <Card.Title as='div' className='mt-1-sm'>
             <strong>
               {product.name.length > 37
                 ? `${product.name.slice(0, 37)}...`

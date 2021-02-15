@@ -17,7 +17,7 @@ const CartToast = () => {
           show={show}
           delay={3000}
           autohide
-          className='toast toast-sm'
+          className='toast toast-sm toast-md'
         >
           <Toast.Body>{message}</Toast.Body>
         </Toast>
