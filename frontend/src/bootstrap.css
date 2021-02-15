@@ -2123,7 +2123,7 @@ pre code {
 
 .form-control {
   display: block;
-  width: 100%;
+  width: 75%;
   height: calc(1.5em + 1.5rem + 2px);
   padding: 0.75rem 1rem;
   font-size: 0.9375rem;
@@ -3460,16 +3460,16 @@ input[type='button'].btn-block {
 .dropdown-menu {
   position: absolute;
   top: 100%;
-  left: 0;
+  right: 0;
   z-index: 1000;
   display: none;
   float: left;
-  min-width: 10rem;
+  min-width: 9rem;
   padding: 0.5rem 0;
   margin: 0.125rem 0 0;
   font-size: 0.9375rem;
   color: #aaa;
-  text-align: left;
+  text-align: center;
   list-style: none;
   background-color: #3a3f44;
   background-clip: padding-box;
