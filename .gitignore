@@ -12,6 +12,9 @@ node_modules/
 # production
 /build
 
+# Sensitive Data
+backend/data/users.js
+
 # misc
 .DS_Store
 .env
