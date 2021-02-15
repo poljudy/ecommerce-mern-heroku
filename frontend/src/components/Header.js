@@ -35,7 +35,7 @@ const Header = () => {
               {userInfo ? (
                 <NavDropdown title={`${userInfo.name}  `} id='username'>
                   <LinkContainer to='/profile'>
-                    <NavDropdown.Item>פרופיל</NavDropdown.Item>
+                    <NavDropdown.Item>אזור אישי</NavDropdown.Item>
                   </LinkContainer>
                   <NavDropdown.Item onClick={logoutHandler}>
                     יציאה
@@ -44,7 +44,7 @@ const Header = () => {
               ) : (
                 <LinkContainer to='/login'>
                   <Nav.Link>
-                    <i className='fas fa-user'></i> כניסה
+                    <i className='fas fa-user'></i> התחברות והרשמה
                   </Nav.Link>
                 </LinkContainer>
               )}

@@ -224,3 +224,8 @@ h2 {
   text-decoration: underline;
   cursor: pointer;
 }
+
+.btn-profile {
+  width: 75%;
+  margin-top: 27px;
+}
