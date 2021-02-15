@@ -47,7 +47,9 @@ const CartScreen = ({ match, location, history }) => {
             <>
               <Message variant='brand'>
                 עגלת הקניות שלכם ריקה...{' '}
-                <Link onClick={() => history.goBack()}>חזרה</Link>{' '}
+                <span className='link' onClick={() => history.goBack()}>
+                  חזרה
+                </span>{' '}
               </Message>
             </>
           ) : (
@@ -60,18 +62,19 @@ const CartScreen = ({ match, location, history }) => {
                         <Image src={item.image} alt={item.name} fluid rounded />
                       </Link>
                     </Col>
-                    <Col md={3} className='my-auto'>
+                    <Col md={3} className='my-auto mt-4-sm'>
                       <Link to={`/product/${item.product}`}>
                         {item.name.length > 30
                           ? `${item.name.slice(0, 30)}...`
                           : `${item.name}`}
                       </Link>
                     </Col>
-                    <Col md={3} className='my-auto'>
+                    <Col md={3} className='my-auto mt-4-sm'>
                       {item.price.toLocaleString('he-IL')} ש"ח
                     </Col>
-                    <Col md={2} className='my-auto'>
+                    <Col md={2} className='my-auto mt-4-sm'>
                       <Form.Control
+                        className='form-control-lg form-control-md form-control-small'
                         as='select'
                         value={item.qty}
                         onChange={(e) => {

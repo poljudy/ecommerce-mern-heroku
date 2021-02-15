@@ -1,9 +1,9 @@
 import React from 'react'
 import { Alert } from 'react-bootstrap'
 
-const Message = ({ variant, children }) => {
+const Message = ({ variant, children, classN }) => {
   return (
-    <Alert variant={variant} className='alert'>
+    <Alert variant={variant} className={classN}>
       {children}
     </Alert>
   )
@@ -11,6 +11,7 @@ const Message = ({ variant, children }) => {
 
 Message.defaultProps = {
   variant: 'info',
+  classN: 'alert',
 }
 
 export default Message
