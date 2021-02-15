@@ -1,12 +1,22 @@
-import React from 'react'
+import React, { useState } from 'react'
 import { Alert } from 'react-bootstrap'
 
 const Message = ({ variant, children, classN }) => {
-  return (
-    <Alert variant={variant} className={classN}>
-      {children}
-    </Alert>
-  )
+  const [show, setShow] = useState(true)
+
+  if (show) {
+    return (
+      <Alert
+        variant={variant}
+        className={classN}
+        onClose={() => setShow(false)}
+        dismissible
+      >
+        {children}
+      </Alert>
+    )
+  }
+  return <></>
 }
 
 Message.defaultProps = {
