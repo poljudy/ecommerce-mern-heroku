@@ -1,16 +1,16 @@
 import React, { useState } from 'react'
 import { Alert } from 'react-bootstrap'
 
-const Message = ({ variant, children, classN }) => {
+const Message = ({ variant, children, classN, dismissible }) => {
   const [show, setShow] = useState(true)
 
   if (show) {
     return (
       <Alert
         variant={variant}
-        className={classN}
+        className={`${classN}`}
         onClose={() => setShow(false)}
-        dismissible
+        dismissible={dismissible}
       >
         {children}
       </Alert>
@@ -22,6 +22,7 @@ const Message = ({ variant, children, classN }) => {
 Message.defaultProps = {
   variant: 'info',
   classN: 'alert',
+  dismissible: true,
 }
 
 export default Message

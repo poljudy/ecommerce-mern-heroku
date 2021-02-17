@@ -1,11 +1,12 @@
 import React, { useState, useEffect } from 'react'
 import { Link } from 'react-router-dom'
 import { Form, Button, Row, Col } from 'react-bootstrap'
+import { GoogleLogin } from 'react-google-login'
 import { useDispatch, useSelector } from 'react-redux'
 import Message from '../components/Message'
 import FormContainer from '../components/FormContainer'
 import Spinner from '../components/layout/Spinner'
-import { register } from '../actions/userActions'
+import { register, login } from '../actions/userActions'
 
 const RegisterScreen = ({ location, history }) => {
   const [name, setName] = useState('')
@@ -43,6 +44,26 @@ const RegisterScreen = ({ location, history }) => {
     }
   }
 
+  const googleLogin = (response) => {
+    const {
+      profileObj: { email, name },
+      googleId,
+    } = response
+
+    if (error === 'המשתמש קיים' && email) {
+      dispatch(login(email, googleId))
+    }
+
+    if (email) {
+      dispatch(register(name, email, googleId))
+    } else {
+      setMessage('חלה שגיאה. יש לנסות שוב')
+      setTimeout(() => {
+        setMessage(null)
+      }, 2500)
+    }
+  }
+
   return (
     <FormContainer>
       <h1>הרשמה</h1>
@@ -57,6 +78,14 @@ const RegisterScreen = ({ location, history }) => {
         </Message>
       )}
       {loading && <Spinner />}
+      <GoogleLogin
+        clientId='816282195701-kdd4l2l5bnun3kbpsq8kqcusfb1cjkcr.apps.googleusercontent.com'
+        onSuccess={googleLogin}
+        onFailure={googleLogin}
+        buttonText='כניסה עם גוגל'
+        className='google-login'
+      />
+      <h2>או הרשמה לאתר</h2>
       <Form onSubmit={submitHandler}>
         <Form.Group controlId='name'>
           <Form.Label>שם מלא</Form.Label>
@@ -98,7 +127,7 @@ const RegisterScreen = ({ location, history }) => {
             required
           ></Form.Control>
         </Form.Group>
-        <Button className='btn-brand' type='submit'>
+        <Button className='btn-brand mt-3' type='submit'>
           הרשמה
         </Button>
       </Form>

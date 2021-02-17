@@ -2,10 +2,18 @@ import {
   CART_ADD_ITEM,
   CART_REMOVE_TOAST,
   CART_REMOVE_ITEM,
+  CART_SAVE_SHIPPING_ADDRESS,
+  CART_SAVE_PAYMENT_METHOD,
 } from '../constants/CartConstants'
 
 export const cartReducer = (
-  state = { cartItems: [], toast: false, message: '' },
+  state = {
+    cartItems: [],
+    toast: false,
+    message: '',
+    shippingAddress: {},
+    paymentMethod: '',
+  },
   action
 ) => {
   const { type, payload } = action
@@ -41,6 +49,16 @@ export const cartReducer = (
         cartItems: state.cartItems.filter(
           (item) => item.product !== payload.product
         ),
+      }
+    case CART_SAVE_SHIPPING_ADDRESS:
+      return {
+        ...state,
+        shippingAddress: payload,
+      }
+    case CART_SAVE_PAYMENT_METHOD:
+      return {
+        ...state,
+        paymentMethod: payload,
       }
     case CART_REMOVE_TOAST:
       return {

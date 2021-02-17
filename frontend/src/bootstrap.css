@@ -2123,7 +2123,7 @@ pre code {
 
 .form-control {
   display: block;
-  width: 75%;
+  width: 100%;
   height: calc(1.5em + 1.5rem + 2px);
   padding: 0.75rem 1rem;
   font-size: 0.9375rem;
@@ -2321,6 +2321,7 @@ textarea.form-control {
 
 .form-check-label {
   margin-bottom: 0;
+  margin-right: 1.25rem;
 }
 
 .form-check-inline {

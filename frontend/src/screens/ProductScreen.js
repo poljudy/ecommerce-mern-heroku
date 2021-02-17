@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react'
 import { Link } from 'react-router-dom'
 import { useDispatch, useSelector } from 'react-redux'
 import { Row, Col, Image, ListGroup, Card, Form } from 'react-bootstrap'
+import NumberFormat from 'react-number-format'
 import Rating from '../components/Rating'
 import AddToCartBtn from '../components/AddToCartBtn'
 import { listProductDetails } from '../actions/productActions'
@@ -10,7 +11,6 @@ import Message from '../components/Message'
 
 const ProductScreen = ({ match }) => {
   const [qty, setQty] = useState(1)
-  const [price, setPrice] = useState('')
 
   const dispatch = useDispatch()
 
@@ -20,8 +20,6 @@ const ProductScreen = ({ match }) => {
 
   useEffect(() => {
     dispatch(listProductDetails(match.params.id))
-
-    if (product.price) setPrice(product.price.toLocaleString('he-IL'))
   }, [dispatch, match, product.price])
 
   return (
@@ -51,7 +49,14 @@ const ProductScreen = ({ match }) => {
                 />
               </ListGroup.Item>
               <ListGroup.Item>
-                <strong>{price} ש"ח</strong>
+                <strong>
+                  <NumberFormat
+                    value={product.price}
+                    displayType={'text'}
+                    thousandSeparator={true}
+                  />{' '}
+                  ש"ח
+                </strong>
               </ListGroup.Item>
               <ListGroup.Item>{product.description}</ListGroup.Item>
             </ListGroup>
@@ -63,8 +68,15 @@ const ProductScreen = ({ match }) => {
                   <Row>
                     <Col>מחיר:</Col>
                     <Col>
-                      <strong style={{ fontSize: '0.85rem' }}>
-                        {price} ש"ח
+                      <strong
+                        style={{ fontSize: product.price > 999 && '0.85rem' }}
+                      >
+                        <NumberFormat
+                          value={product.price}
+                          displayType={'text'}
+                          thousandSeparator={true}
+                        />{' '}
+                        ש"ח
                       </strong>
                     </Col>
                   </Row>

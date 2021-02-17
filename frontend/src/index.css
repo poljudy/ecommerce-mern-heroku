@@ -78,15 +78,20 @@ h2 {
   }
 
   .form-control-lg {
-    width: 100% !important;
+    width: 125% !important;
   }
 }
 
 @media (max-width: 985px) {
   .form-control-md {
-    width: 155% !important;
+    width: 210% !important;
+  }
+
+  .icon-md {
+    margin-right: 1.25rem;
   }
 }
+
 @media (max-width: 1000px) {
   .toast-md {
     position: static !important;
@@ -167,6 +172,9 @@ h2 {
 
 .alert-brand {
   background-image: linear-gradient(#7deb94, #53dbb2 60%, #38d1c5);
+  color: #214638;
+  text-shadow: 0 0 0 rgb(0 0 0 / 0%);
+  font-weight: 700;
 }
 
 .brand {
@@ -220,7 +228,9 @@ h2 {
 }
 
 .link {
-  color: #fff;
+  color: #214638;
+  text-shadow: 0 0 0 rgb(0 0 0 / 0%);
+  font-weight: 700;
   text-decoration: underline;
   cursor: pointer;
 }
@@ -228,4 +238,13 @@ h2 {
 .btn-profile {
   width: 75%;
   margin-top: 27px;
+}
+
+.paypal-img {
+  width: 7.8rem;
+}
+
+.google-login {
+  width: 35%;
+  margin-bottom: 1rem;
 }

@@ -2,6 +2,7 @@ import React, { useEffect } from 'react'
 import { Link } from 'react-router-dom'
 import { useDispatch, useSelector } from 'react-redux'
 import { Row, Col, ListGroup, Image, Form, Button, Card } from 'react-bootstrap'
+import CheckoutSteps from '../components/CheckoutSteps'
 import Message from '../components/Message'
 import { addToCart, hideToast, removeFromCart } from '../actions/cartActions'
 
@@ -14,7 +15,10 @@ const CartScreen = ({ match, location, history }) => {
 
   const cart = useSelector((state) => state.cart)
 
-  const { cartItems } = cart
+  const userLogin = useSelector((state) => state.userLogin)
+  const { userInfo } = userLogin
+
+  const { cartItems, shippingAddress } = cart
 
   useEffect(() => {
     if (productId) {
@@ -39,15 +43,26 @@ const CartScreen = ({ match, location, history }) => {
 
   return (
     <>
-      <Button onClick={() => history.goBack()}>חזרה</Button>
+      {cartItems.length === 0 && (
+        <Button onClick={() => history.push('/')}>חזרה</Button>
+      )}
+      {cartItems.length > 0 && (
+        <CheckoutSteps
+          step1
+          isCartScreen
+          step2={shippingAddress.address && userInfo}
+          step3={shippingAddress.address && userInfo}
+          step4={shippingAddress.address && userInfo}
+        />
+      )}
       <Row>
         <Col md={8}>
           <h1>עגלת קניות</h1>
           {cartItems.length === 0 ? (
             <>
-              <Message variant='brand'>
+              <Message variant='brand' dismissible={false}>
                 עגלת הקניות שלכם ריקה...{' '}
-                <span className='link' onClick={() => history.goBack()}>
+                <span className='link' onClick={() => history.push('/')}>
                   חזרה
                 </span>{' '}
               </Message>
@@ -146,7 +161,7 @@ const CartScreen = ({ match, location, history }) => {
                       className='btn-block btn-brand'
                       onClick={checkoutHandler}
                     >
-                      המשיכו לקופה
+                      לשלב הבא
                     </Button>
                   </ListGroup.Item>
                 </>
