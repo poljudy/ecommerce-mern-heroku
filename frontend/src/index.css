@@ -219,6 +219,15 @@ h2 {
   bottom: 10px;
 }
 
+.alert-extra-wide {
+  width: 100%;
+  display: block;
+  margin: unset !important;
+  text-align: center;
+  margin-bottom: 0.75rem;
+  bottom: 10px;
+}
+
 .toast {
   width: 8.44rem;
   text-align: center;

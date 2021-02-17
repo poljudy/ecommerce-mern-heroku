@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react'
+import React, { useEffect } from 'react'
 import { Link } from 'react-router-dom'
 import { Button, Row, Col, ListGroup, Image, Card, Form } from 'react-bootstrap'
 import { useDispatch, useSelector } from 'react-redux'
@@ -7,6 +7,7 @@ import Message from '../components/Message'
 import CheckoutSteps from '../components/CheckoutSteps'
 import PayPal from '../images/paypal.png'
 import { addToCart, hideToast, removeFromCart } from '../actions/cartActions'
+import { createOrder } from '../actions/orderActions'
 
 const PlaceOrderScreen = ({ history }) => {
   const dispatch = useDispatch()
@@ -15,12 +16,6 @@ const PlaceOrderScreen = ({ history }) => {
 
   const userLogin = useSelector((state) => state.userLogin)
   const { userInfo } = userLogin
-
-  useEffect(() => {
-    if (!userInfo) {
-      history.push('/cart')
-    }
-  }, [history, userInfo])
 
   // Calculate prices
   const addDecimals = (num) => (Math.round(num * 100) / 100).toFixed(2)
@@ -46,8 +41,30 @@ const PlaceOrderScreen = ({ history }) => {
     }, 3500)
   }
 
+  const orderCreate = useSelector((state) => state.orderCreate)
+  const { order, success, error } = orderCreate
+
+  useEffect(() => {
+    if (!userInfo) {
+      history.push('/cart')
+    }
+
+    if (success) {
+      history.push(`/order/${order._id}`)
+    }
+  }, [history, userInfo, success, order])
+
   const placeOrderHandler = () => {
-    console.log('place order')
+    dispatch(
+      createOrder({
+        orderItems: cart.cartItems,
+        shippingAddress: cart.shippingAddress,
+        paymentMethod: cart.paymentMethod,
+        itemsPrice: cart.itemsPrice,
+        shippingPrice: cart.shippingPrice,
+        totalPrice: cart.totalPrice,
+      })
+    )
   }
 
   return (
@@ -193,7 +210,17 @@ const PlaceOrderScreen = ({ history }) => {
                   </Col>
                 </Row>
               </ListGroup.Item>
-
+              {error && (
+                <ListGroup.Item>
+                  <Message
+                    variant='danger'
+                    classN='alert-extra-wide'
+                    dismissible={false}
+                  >
+                    {error}
+                  </Message>
+                </ListGroup.Item>
+              )}
               <ListGroup.Item>
                 <Button
                   type='button'

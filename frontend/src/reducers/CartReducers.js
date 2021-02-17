@@ -4,7 +4,8 @@ import {
   CART_REMOVE_ITEM,
   CART_SAVE_SHIPPING_ADDRESS,
   CART_SAVE_PAYMENT_METHOD,
-} from '../constants/CartConstants'
+  CART_CLEAR_ITEMS,
+} from '../constants/cartConstants'
 
 export const cartReducer = (
   state = {
@@ -64,6 +65,14 @@ export const cartReducer = (
       return {
         ...state,
         toast: false,
+      }
+    case CART_CLEAR_ITEMS:
+      return {
+        ...state,
+        cartItems: [],
+        toast: false,
+        message: '',
+        paymentMethod: '',
       }
     default:
       return state
