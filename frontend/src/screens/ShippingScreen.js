@@ -12,16 +12,28 @@ const ShippingScreen = ({ history }) => {
   const userLogin = useSelector((state) => state.userLogin)
   const { userInfo } = userLogin
 
-  const [address, setAddress] = useState(shippingAddress.address)
-  const [city, setCity] = useState(shippingAddress.city)
-  const [postalCode, setPostalCode] = useState(shippingAddress.postalCode)
-  const [phoneNumber, setPhoneNumber] = useState(shippingAddress.phoneNumber)
+  const [address, setAddress] = useState('')
+  const [city, setCity] = useState('')
+  const [postalCode, setPostalCode] = useState('')
+  const [phoneNumber, setPhoneNumber] = useState('')
 
   useEffect(() => {
     if (!userInfo) {
       history.push('/cart')
     }
-  }, [history, userInfo])
+
+    if (shippingAddress !== null) {
+      setAddress(shippingAddress.address)
+      setCity(shippingAddress.city)
+      setPostalCode(shippingAddress.postalCode)
+      setPhoneNumber(shippingAddress.phoneNumber)
+    } else if (userInfo) {
+      setAddress(userInfo.address.address)
+      setCity(userInfo.address.city)
+      setPostalCode(userInfo.address.postalCode)
+      setPhoneNumber(userInfo.address.phoneNumber)
+    }
+  }, [history, userInfo, shippingAddress])
 
   const dispatch = useDispatch()
 
@@ -35,7 +47,7 @@ const ShippingScreen = ({ history }) => {
         phoneNumber,
       })
     )
-    history.push('/payment')
+    history.push('/placeorder')
   }
 
   return (
@@ -43,8 +55,7 @@ const ShippingScreen = ({ history }) => {
       <CheckoutSteps
         step1
         step2
-        step3={shippingAddress.address}
-        step4={shippingAddress.address}
+        step4={shippingAddress !== null && shippingAddress.address}
       />
       <FormContainer>
         <h1 className='mb-n3'>כתובת למשלוח</h1>
@@ -91,7 +102,7 @@ const ShippingScreen = ({ history }) => {
             ></Form.Control>
           </Form.Group>
           <Button type='submit' className='btn-brand btn-block mt-5'>
-            מעבר לבחירת שיטת תשלום
+            מעבר לביצוע ההזמנה
           </Button>
         </Form>
       </FormContainer>

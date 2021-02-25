@@ -15,6 +15,10 @@ const RegisterScreen = ({ location, history }) => {
   const [confirmPassword, setConfirmPassword] = useState('')
   const [message, setMessage] = useState(null)
 
+  const [googleEmail, setGoogleEmail] = useState('')
+  const [googleId, setGoogleId] = useState('')
+  const [loginSuccess, setLoginSuccess] = useState(false)
+
   const dispatch = useDispatch()
 
   const userRegister = useSelector((state) => state.userRegister)
@@ -29,7 +33,22 @@ const RegisterScreen = ({ location, history }) => {
     if (userInfo) {
       history.push(redirect)
     }
-  }, [history, userInfo, redirect])
+
+    if (error === 'המשתמש קיים' && googleEmail !== '') {
+      setLoginSuccess(true)
+      dispatch(login(googleEmail, googleId))
+      history.push('/')
+    }
+  }, [
+    history,
+    userInfo,
+    redirect,
+    error,
+    email,
+    dispatch,
+    googleEmail,
+    googleId,
+  ])
 
   const submitHandler = (e) => {
     e.preventDefault()
@@ -50,11 +69,11 @@ const RegisterScreen = ({ location, history }) => {
       googleId,
     } = response
 
-    if (error === 'המשתמש קיים' && email) {
-      dispatch(login(email, googleId))
-    }
+    setGoogleEmail(email)
+    setGoogleId(googleId)
 
     if (email) {
+      setLoginSuccess(true)
       dispatch(register(name, email, googleId))
     } else {
       setMessage('חלה שגיאה. יש לנסות שוב')
@@ -66,14 +85,13 @@ const RegisterScreen = ({ location, history }) => {
 
   return (
     <FormContainer>
-      <h1>הרשמה</h1>
       {message && (
-        <Message variant='danger' classN='alert-wide'>
+        <Message variant='danger' classN='alert-register'>
           {message}
         </Message>
       )}
-      {error && (
-        <Message variant='danger' classN='alert-wide'>
+      {!loginSuccess && error && (
+        <Message variant='danger' classN='alert-register'>
           {error}
         </Message>
       )}
@@ -82,10 +100,10 @@ const RegisterScreen = ({ location, history }) => {
         clientId='816282195701-kdd4l2l5bnun3kbpsq8kqcusfb1cjkcr.apps.googleusercontent.com'
         onSuccess={googleLogin}
         onFailure={googleLogin}
-        buttonText='כניסה עם גוגל'
-        className='google-login'
+        buttonText='הרשמה באמצעות Google'
+        className='google-login mt-4'
       />
-      <h2>או הרשמה לאתר</h2>
+      <h1>או הרשמה באתר</h1>
       <Form onSubmit={submitHandler}>
         <Form.Group controlId='name'>
           <Form.Label>שם מלא</Form.Label>

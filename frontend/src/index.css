@@ -87,6 +87,14 @@ h2 {
     width: 210% !important;
   }
 
+  .sm-hide {
+    display: none !important;
+  }
+
+  .hide-md {
+    display: none !important;
+  }
+
   .icon-md {
     margin-right: 1.25rem;
   }
@@ -126,6 +134,16 @@ h2 {
 
   .form-control-small {
     width: 100% !important;
+  }
+
+  .alert-user-list-sm {
+    top: 126px !important;
+    right: 10.5rem !important;
+  }
+
+  .alert-delete-order-sm {
+    top: -542px !important;
+    right: 9rem !important;
   }
 }
 
@@ -207,7 +225,16 @@ h2 {
   width: 55%;
   display: block;
   margin: auto;
+  z-index: 10;
   text-align: center;
+}
+
+.alert-medium {
+  width: 50%;
+  display: block;
+  text-align: center;
+  z-index: 10;
+  margin-bottom: 0.75rem;
 }
 
 .alert-wide {
@@ -216,7 +243,110 @@ h2 {
   margin: unset !important;
   text-align: center;
   margin-bottom: 0.75rem;
+  position: absolute;
+  z-index: 10;
+  top: 10px;
+  left: 3rem;
+}
+
+.alert-register {
+  width: 75%;
+  display: block;
+  margin: unset !important;
+  text-align: center;
+  margin-bottom: 0.75rem;
+  position: absolute;
+  z-index: 10;
+  top: 97px;
+  left: 4rem;
+}
+
+.alert-edit-user {
+  width: 100%;
+  display: block;
+  margin: unset !important;
+  text-align: center;
+  margin-bottom: 0.75rem;
+  position: absolute;
+  z-index: 10;
+  top: -44px;
+  left: 0rem;
+}
+
+.alert-user-list {
+  width: 35%;
+  display: block;
+  position: absolute;
+  top: 143px;
+  margin: unset !important;
+  text-align: center;
+  z-index: 10;
+  margin-bottom: 0.75rem;
+  right: 28.75rem;
+}
+
+.alert-edit-screen {
+  width: 35%;
+  display: block;
+  position: absolute;
+  top: 143px;
+  margin: unset !important;
+  text-align: center;
+  z-index: 10;
+  margin-bottom: 0.75rem;
+  right: 18.75rem;
+}
+
+.alert-product-screen {
+  width: 35%;
+  display: block;
+  position: absolute;
+  top: 143px;
+  margin: unset !important;
+  text-align: center;
+  z-index: 10;
+  margin-bottom: 0.75rem;
+  right: 28.75rem;
+}
+
+.alert-delete-order {
+  width: 50%;
+  display: block;
+  position: absolute;
+  margin: unset !important;
+  text-align: center;
+  margin-bottom: 0.75rem;
+  z-index: 10;
+  top: -44px;
+  right: 12.75rem;
+}
+
+.alert-medium-wide {
+  width: 75%;
+  display: block;
+  text-align: center;
+  z-index: 10;
+  margin-bottom: 0.75rem;
   bottom: 10px;
+}
+
+.alert-medium {
+  width: 50%;
+  display: block;
+  text-align: center;
+  z-index: 10;
+  margin-bottom: 0.75rem;
+  bottom: 10px;
+}
+
+.alert-payment {
+  width: 75%;
+  display: inline !important;
+  margin: unset !important;
+  text-align: center;
+  z-index: 10;
+  margin-bottom: 0.75rem;
+  bottom: 0 !important;
 }
 
 .alert-extra-wide {
@@ -224,6 +354,7 @@ h2 {
   display: block;
   margin: unset !important;
   text-align: center;
+  z-index: 10;
   margin-bottom: 0.75rem;
   bottom: 10px;
 }
@@ -244,6 +375,18 @@ h2 {
   cursor: pointer;
 }
 
+.product-link {
+  cursor: pointer;
+}
+
+.order-link {
+  cursor: pointer;
+}
+
+.product-link:hover {
+  text-decoration: underline;
+}
+
 .btn-profile {
   width: 75%;
   margin-top: 27px;
@@ -254,6 +397,16 @@ h2 {
 }
 
 .google-login {
-  width: 35%;
+  width: 50%;
   margin-bottom: 1rem;
+  background-color: white !important;
+  font-size: 1rem !important;
+  font-weight: bold !important;
+  font-family: 'Heebo', sans-serif !important;
+  color: #272b30 !important;
+}
+
+td {
+  text-align: center;
+  vertical-align: middle !important;
 }

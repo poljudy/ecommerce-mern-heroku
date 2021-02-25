@@ -32,7 +32,26 @@ const Header = () => {
           <Navbar.Toggle aria-controls='basic-navbar-nav' />
           <Navbar.Collapse id='basic-navbar-nav'>
             <Nav className='mr-auto'>
-              {userInfo ? (
+              {userInfo && userInfo.isAdmin && (
+                <NavDropdown title={`תפריט מנהל מערכת  `} id='adminmenu'>
+                  <LinkContainer to='/admin/orders'>
+                    <NavDropdown.Item>רשימת הזמנות</NavDropdown.Item>
+                  </LinkContainer>
+                  <LinkContainer to='/admin/products'>
+                    <NavDropdown.Item>רשימת מוצרים</NavDropdown.Item>
+                  </LinkContainer>
+                  <LinkContainer to='/admin/users'>
+                    <NavDropdown.Item>רשימת משתמשים</NavDropdown.Item>
+                  </LinkContainer>
+                  <LinkContainer to='/profile'>
+                    <NavDropdown.Item>אזור אישי</NavDropdown.Item>
+                  </LinkContainer>
+                  <NavDropdown.Item onClick={logoutHandler}>
+                    יציאה
+                  </NavDropdown.Item>
+                </NavDropdown>
+              )}
+              {userInfo && !userInfo.isAdmin ? (
                 <NavDropdown title={`${userInfo.name}  `} id='username'>
                   <LinkContainer to='/profile'>
                     <NavDropdown.Item>אזור אישי</NavDropdown.Item>
@@ -42,13 +61,14 @@ const Header = () => {
                   </NavDropdown.Item>
                 </NavDropdown>
               ) : (
-                <LinkContainer to='/login'>
-                  <Nav.Link>
-                    <i className='fas fa-user'></i> התחברות והרשמה
-                  </Nav.Link>
-                </LinkContainer>
+                !userInfo && (
+                  <LinkContainer to='/login'>
+                    <Nav.Link>
+                      <i className='fas fa-user'></i> התחברות והרשמה
+                    </Nav.Link>
+                  </LinkContainer>
+                )
               )}
-
               <LinkContainer to='/cart'>
                 <Nav.Link>
                   <i className='fas fa-shopping-cart'></i> עגלת קניות{' '}

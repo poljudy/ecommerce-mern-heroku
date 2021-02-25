@@ -26,15 +26,6 @@ const CheckoutSteps = ({ step1, step2, step3, step4, isCartScreen }) => {
         )}
       </Nav.Item>
       <Nav.Item>
-        {step3 ? (
-          <LinkContainer to='/payment'>
-            <Nav.Link>בחירת שיטת תשלום</Nav.Link>
-          </LinkContainer>
-        ) : (
-          <Nav.Link disabled>בחירת שיטת תשלום</Nav.Link>
-        )}
-      </Nav.Item>
-      <Nav.Item>
         {step4 ? (
           <LinkContainer to='/placeorder'>
             <Nav.Link>ביצוע ההזמנה</Nav.Link>

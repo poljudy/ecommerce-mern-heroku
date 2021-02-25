@@ -29,6 +29,7 @@ const orderSchema = mongoose.Schema(
     paymentMethod: {
       type: String,
       required: true,
+      default: 'PayPal',
     },
     paymentResult: {
       id: { type: String },
@@ -37,6 +38,11 @@ const orderSchema = mongoose.Schema(
       email_address: { type: String },
     },
     shippingPrice: {
+      type: Number,
+      required: true,
+      default: 0.0,
+    },
+    itemsPrice: {
       type: Number,
       required: true,
       default: 0.0,

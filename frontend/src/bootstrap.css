@@ -2979,13 +2979,13 @@ fieldset:disabled a.btn {
 }
 
 .btn-light {
-  color: #272b30;
+  color: #aaaaaa;
   background-color: #e9ecef;
   border-color: #e9ecef;
 }
 
 .btn-light:hover {
-  color: #272b30;
+  color: #cececea1;
   background-color: #d3d9df;
   border-color: #cbd3da;
 }
@@ -4328,6 +4328,7 @@ input[type='button'].btn-block {
   background-color: #fff;
   border: 1px solid #ced4da;
   border-radius: 0.25rem;
+  text-align: left;
 }
 
 .custom-file-label::after {
@@ -8702,6 +8703,10 @@ button.bg-dark:focus {
 .mt-4,
 .my-4 {
   margin-top: 1.5rem !important;
+}
+
+.mt-4_5 {
+  margin-top: 1.95rem !important;
 }
 
 .mr-4,

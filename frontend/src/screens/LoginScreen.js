@@ -7,11 +7,17 @@ import Message from '../components/Message'
 import FormContainer from '../components/FormContainer'
 import Spinner from '../components/layout/Spinner'
 import { login, register } from '../actions/userActions'
+import { set } from 'mongoose'
 
 const LoginScreen = ({ location, history }) => {
   const [email, setEmail] = useState('')
   const [password, setPassword] = useState('')
   const [message, setMessage] = useState(null)
+
+  const [googleName, setGoogleName] = useState('')
+  const [googleEmail, setGoogleEmail] = useState('')
+  const [googleId, setGoogleId] = useState('')
+  const [loginSuccess, setLoginSuccess] = useState(false)
 
   const dispatch = useDispatch()
 
@@ -24,7 +30,22 @@ const LoginScreen = ({ location, history }) => {
     if (userInfo) {
       history.push(redirect)
     }
-  }, [history, userInfo, redirect])
+
+    if (error === 'אימייל או סיסמה לא נכונים' && googleName !== '') {
+      dispatch(register(googleName, googleEmail, googleId))
+      setLoginSuccess(true)
+      history.push('/')
+    }
+  }, [
+    history,
+    userInfo,
+    redirect,
+    error,
+    dispatch,
+    googleName,
+    googleEmail,
+    googleId,
+  ])
 
   const submitHandler = (e) => {
     e.preventDefault()
@@ -37,9 +58,9 @@ const LoginScreen = ({ location, history }) => {
       googleId,
     } = response
 
-    if (error === 'אימייל או סיסמה לא נכונים' && email) {
-      dispatch(register(name, email, googleId))
-    }
+    setGoogleEmail(email)
+    setGoogleName(name)
+    setGoogleId(googleId)
 
     if (email) {
       dispatch(login(email, googleId))
@@ -59,7 +80,7 @@ const LoginScreen = ({ location, history }) => {
           {message}
         </Message>
       )}
-      {error && (
+      {!loginSuccess && error && (
         <Message variant='danger' classN='alert-wide'>
           {error}
         </Message>
@@ -69,7 +90,7 @@ const LoginScreen = ({ location, history }) => {
         clientId='816282195701-kdd4l2l5bnun3kbpsq8kqcusfb1cjkcr.apps.googleusercontent.com'
         onSuccess={googleLogin}
         onFailure={googleLogin}
-        buttonText='כניסה עם גוגל'
+        buttonText='כניסה באמצעות Google'
         className='google-login'
       />
       <h2>או כניסה עם סיסמה</h2>

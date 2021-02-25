@@ -21,6 +21,22 @@ const userSchema = mongoose.Schema(
       required: true,
       default: false,
     },
+    hasPaidOrders: {
+      type: Boolean,
+      required: true,
+      default: false,
+    },
+    hasOrders: {
+      type: Boolean,
+      required: true,
+      default: false,
+    },
+    address: {
+      address: { type: String, default: '' },
+      city: { type: String, default: '' },
+      postalCode: { type: String, default: '' },
+      phoneNumber: { type: String, default: '' },
+    },
   },
   {
     timestamps: true,

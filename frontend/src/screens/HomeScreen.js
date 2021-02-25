@@ -23,14 +23,18 @@ const HomeScreen = ({ history }) => {
       {loading ? (
         <Spinner />
       ) : error ? (
-        <Message variant='danger'>{error}</Message>
+        <Message variant='danger' dismissible={false}>
+          {error}
+        </Message>
       ) : (
         <Row>
-          {products.map((product) => (
-            <Col key={product._id} sm={12} md={6} lg={4} xl={3}>
-              <Product product={product} history={history} />
-            </Col>
-          ))}
+          {products
+            .filter((product) => product.published)
+            .map((product) => (
+              <Col key={product._id} sm={12} md={6} lg={4} xl={3}>
+                <Product product={product} history={history} />
+              </Col>
+            ))}
         </Row>
       )}
     </>

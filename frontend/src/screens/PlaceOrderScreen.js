@@ -7,7 +7,7 @@ import Message from '../components/Message'
 import CheckoutSteps from '../components/CheckoutSteps'
 import PayPal from '../images/paypal.png'
 import { addToCart, hideToast, removeFromCart } from '../actions/cartActions'
-import { createOrder } from '../actions/orderActions'
+import { createOrder, listMyOrders } from '../actions/orderActions'
 
 const PlaceOrderScreen = ({ history }) => {
   const dispatch = useDispatch()
@@ -65,33 +65,41 @@ const PlaceOrderScreen = ({ history }) => {
         totalPrice: cart.totalPrice,
       })
     )
+    setTimeout(() => {
+      dispatch(listMyOrders())
+    }, 2000)
   }
 
   return (
     <>
-      <CheckoutSteps step1 step2 step3 step4 />
+      <CheckoutSteps step1 step2 step4 />
       <Row>
         <Col md={8}>
           <ListGroup variant='flush'>
             <ListGroup.Item>
               <h2>כתובת למשלוח</h2>
-              <p>
+              <p className='mb-0'>
                 {cart.shippingAddress.address}, {cart.shippingAddress.city}
-                <span className='mb-0' style={{ display: 'block' }}>
-                  {cart.shippingAddress.postalCode &&
-                    cart.shippingAddress.postalCode}
-                </span>
-                {cart.shippingAddress.phoneNumber && (
-                  <span style={{ display: 'block' }}>
-                    טלפון: {cart.shippingAddress.phoneNumber}
-                  </span>
-                )}
               </p>
+              <p className='mb-0'>
+                {cart.shippingAddress.postalCode &&
+                  cart.shippingAddress.postalCode}
+              </p>
+              {cart.shippingAddress.phoneNumber && (
+                <p>
+                  <strong>טלפון:</strong> {cart.shippingAddress.phoneNumber}
+                </p>
+              )}
             </ListGroup.Item>
             <ListGroup.Item>
               <h2>שיטת תשלום</h2>
               {cart.paymentMethod === 'PayPal' && (
-                <Image src={PayPal} alt='PayPal' className='paypal-img' />
+                <>
+                  <Image src={PayPal} alt='PayPal' className='paypal-img' />{' '}
+                  <h4 style={{ display: 'inline', marginRight: '1.5rem' }}>
+                    או כרטיס אשראי
+                  </h4>
+                </>
               )}
             </ListGroup.Item>
             <ListGroup.Item>
@@ -106,12 +114,14 @@ const PlaceOrderScreen = ({ history }) => {
                     <ListGroup.Item key={index}>
                       <Row>
                         <Col md={2} className='my-auto'>
-                          <Image
-                            src={item.image}
-                            alt={item.name}
-                            fluid
-                            rounded
-                          />
+                          <Link to={`/product/${item.product}`}>
+                            <Image
+                              src={item.image}
+                              alt={item.name}
+                              fluid
+                              rounded
+                            />
+                          </Link>
                         </Col>
                         <Col
                           className='my-auto mt-4-sm'

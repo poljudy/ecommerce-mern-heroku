@@ -50,9 +50,15 @@ const CartScreen = ({ match, location, history }) => {
         <CheckoutSteps
           step1
           isCartScreen
-          step2={shippingAddress.address && userInfo}
-          step3={shippingAddress.address && userInfo}
-          step4={shippingAddress.address && userInfo}
+          step2={
+            shippingAddress !== null && shippingAddress.address && userInfo
+          }
+          step3={
+            shippingAddress !== null && shippingAddress.address && userInfo
+          }
+          step4={
+            shippingAddress !== null && shippingAddress.address && userInfo
+          }
         />
       )}
       <Row>
@@ -68,62 +74,69 @@ const CartScreen = ({ match, location, history }) => {
               </Message>
             </>
           ) : (
-            <ListGroup variant='flush'>
-              {cartItems.map((item) => (
-                <ListGroup.Item key={item.product}>
-                  <Row>
-                    <Col md={2} className='my-auto'>
-                      <Link to={`/product/${item.product}`}>
-                        <Image src={item.image} alt={item.name} fluid rounded />
-                      </Link>
-                    </Col>
-                    <Col md={3} className='my-auto mt-4-sm'>
-                      <Link to={`/product/${item.product}`}>
-                        {item.name.length > 30
-                          ? `${item.name.slice(0, 30)}...`
-                          : `${item.name}`}
-                      </Link>
-                    </Col>
-                    <Col md={3} className='my-auto mt-4-sm'>
-                      {item.price.toLocaleString('he-IL')} ש"ח
-                    </Col>
-                    <Col md={2} className='my-auto mt-4-sm'>
-                      <Form.Control
-                        className='form-control-lg form-control-md form-control-small'
-                        as='select'
-                        value={item.qty}
-                        onChange={(e) => {
-                          dispatch(
-                            addToCart(
-                              item.product,
-                              Number(e.target.value),
-                              'עגלת הקניות עודכנה בהצלחה'
+            <>
+              <ListGroup variant='flush'>
+                {cartItems.map((item) => (
+                  <ListGroup.Item key={item.product}>
+                    <Row>
+                      <Col md={2} className='my-auto'>
+                        <Link to={`/product/${item.product}`}>
+                          <Image
+                            src={item.image}
+                            alt={item.name}
+                            fluid
+                            rounded
+                          />
+                        </Link>
+                      </Col>
+                      <Col md={3} className='my-auto mt-4-sm'>
+                        <Link to={`/product/${item.product}`}>
+                          {item.name.length > 30
+                            ? `${item.name.slice(0, 30)}...`
+                            : `${item.name}`}
+                        </Link>
+                      </Col>
+                      <Col md={3} className='my-auto mt-4-sm'>
+                        {item.price.toLocaleString('he-IL')} ש"ח
+                      </Col>
+                      <Col md={2} className='my-auto mt-4-sm'>
+                        <Form.Control
+                          className='form-control-lg form-control-md form-control-small'
+                          as='select'
+                          value={item.qty}
+                          onChange={(e) => {
+                            dispatch(
+                              addToCart(
+                                item.product,
+                                Number(e.target.value),
+                                'עגלת הקניות עודכנה בהצלחה'
+                              )
                             )
-                          )
-                          setTimeout(() => {
-                            dispatch(hideToast())
-                          }, 3500)
-                        }}
-                      >
-                        {[...Array(item.countInStock).keys()].map((x) => (
-                          <option key={x + 1} value={x + 1}>
-                            {x + 1}
-                          </option>
-                        ))}
-                      </Form.Control>
-                    </Col>
-                    <Col md={2} className='text-center my-auto'>
-                      <i
-                        className='fas fa-trash mt-4-sm'
-                        onClick={() =>
-                          removeFromCartHandler(item.product, item.qty)
-                        }
-                      ></i>
-                    </Col>
-                  </Row>
-                </ListGroup.Item>
-              ))}
-            </ListGroup>
+                            setTimeout(() => {
+                              dispatch(hideToast())
+                            }, 3500)
+                          }}
+                        >
+                          {[...Array(item.countInStock).keys()].map((x) => (
+                            <option key={x + 1} value={x + 1}>
+                              {x + 1}
+                            </option>
+                          ))}
+                        </Form.Control>
+                      </Col>
+                      <Col md={2} className='text-center my-auto'>
+                        <i
+                          className='fas fa-trash mt-4-sm'
+                          onClick={() =>
+                            removeFromCartHandler(item.product, item.qty)
+                          }
+                        ></i>
+                      </Col>
+                    </Row>
+                  </ListGroup.Item>
+                ))}
+              </ListGroup>
+            </>
           )}
         </Col>
         <Col md={4}>

@@ -2,6 +2,11 @@ import mongoose from 'mongoose'
 
 const reviewSchema = mongoose.Schema(
   {
+    user: {
+      type: mongoose.Schema.Types.ObjectId,
+      required: true,
+      ref: 'User',
+    },
     name: {
       type: String,
       required: true,
@@ -34,7 +39,6 @@ const productSchema = mongoose.Schema(
     },
     brand: {
       type: String,
-      required: true,
     },
     category: {
       type: String,
@@ -64,6 +68,11 @@ const productSchema = mongoose.Schema(
       type: Number,
       required: true,
       default: 0,
+    },
+    published: {
+      type: Boolean,
+      required: true,
+      default: false,
     },
   },
   {

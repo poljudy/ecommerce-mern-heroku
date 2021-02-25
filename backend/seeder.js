@@ -2,6 +2,7 @@ import mongoose from 'mongoose'
 import dotenv from 'dotenv'
 import colors from 'colors'
 import products from './data/products.js'
+import users from './data/users.js'
 import User from './models/userModel.js'
 import Product from './models/productModel.js'
 import Order from './models/orderModel.js'
@@ -13,11 +14,12 @@ connectDB()
 
 const importData = async () => {
   try {
-    await Order.deleteMany()
-    await Product.deleteMany()
-    await User.deleteMany()
+    // await Order.deleteMany()
+    // await Product.deleteMany()
+    // await User.deleteMany()
 
     const createdUsers = await User.insertMany(users)
+    // await User.insertMany(createdUsers)
 
     const adminUser = createdUsers[0]._id
 

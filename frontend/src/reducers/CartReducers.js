@@ -5,6 +5,7 @@ import {
   CART_SAVE_SHIPPING_ADDRESS,
   CART_SAVE_PAYMENT_METHOD,
   CART_CLEAR_ITEMS,
+  CART_CLEAR_SHIPPING_ADDRESS,
 } from '../constants/cartConstants'
 
 export const cartReducer = (
@@ -12,8 +13,8 @@ export const cartReducer = (
     cartItems: [],
     toast: false,
     message: '',
-    shippingAddress: {},
-    paymentMethod: '',
+    shippingAddress: null,
+    paymentMethod: 'PayPal',
   },
   action
 ) => {
@@ -72,7 +73,13 @@ export const cartReducer = (
         cartItems: [],
         toast: false,
         message: '',
-        paymentMethod: '',
+      }
+    case CART_CLEAR_SHIPPING_ADDRESS:
+      return {
+        ...state,
+        toast: false,
+        message: '',
+        shippingAddress: null,
       }
     default:
       return state
