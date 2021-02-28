@@ -101,15 +101,15 @@ const RegisterScreen = ({ location, history }) => {
           </Message>
         )}
         {loading && <Spinner />}
-        <GoogleLogin
+        {/* <GoogleLogin
           clientId='816282195701-kdd4l2l5bnun3kbpsq8kqcusfb1cjkcr.apps.googleusercontent.com'
           onSuccess={googleLogin}
           onFailure={googleLogin}
           buttonText='הרשמה באמצעות Google'
           className='google-login mt-4'
         />
-        <h1>או הרשמה לאתר</h1>
-        {/* <h1>הרשמה</h1> */}
+        <h1>או הרשמה לאתר</h1> */}
+        <h1>הרשמה</h1>
         <Form onSubmit={submitHandler}>
           <Form.Group controlId='name'>
             <Form.Label>שם מלא</Form.Label>

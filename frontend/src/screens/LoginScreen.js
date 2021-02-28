@@ -90,15 +90,15 @@ const LoginScreen = ({ location, history }) => {
           </Message>
         )}
         {loading && <Spinner />}
-        <GoogleLogin
+        {/* <GoogleLogin
           clientId='816282195701-kdd4l2l5bnun3kbpsq8kqcusfb1cjkcr.apps.googleusercontent.com'
           onSuccess={googleLogin}
           onFailure={googleLogin}
           buttonText='כניסה באמצעות Google'
           className='google-login'
         />
-        <h2>או כניסה עם סיסמה</h2>
-        {/* <h2>כניסה</h2> */}
+        <h2>או כניסה עם סיסמה</h2> */}
+        <h2>כניסה</h2>
         <Form onSubmit={submitHandler}>
           <Form.Group controlId='email'>
             <Form.Label>כתובת דוא"ל</Form.Label>
