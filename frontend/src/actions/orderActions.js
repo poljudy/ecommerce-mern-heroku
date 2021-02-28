@@ -49,6 +49,8 @@ export const createOrder = (order) => async (dispatch, getState) => {
       },
     }
 
+    order.paymentMethod = 'PayPal'
+
     const { data } = await axios.post(`/api/orders`, order, config)
 
     dispatch({
