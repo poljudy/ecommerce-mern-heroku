@@ -50,6 +50,10 @@ const PlaceOrderScreen = ({ history }) => {
       history.push('/cart')
     }
 
+    if (cart.cartItems.length === 0) {
+      history.push('/')
+    }
+
     if (success) {
       history.push(`/order/${order._id}`)
     }

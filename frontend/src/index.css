@@ -346,6 +346,22 @@ input {
   top: 12px;
 }
 
+.x-large {
+  font-size: 4rem;
+  line-height: 1.2;
+  margin-bottom: 1rem;
+}
+
+.large {
+  font-size: 3rem;
+  line-height: 1.2;
+  margin-bottom: 1rem;
+}
+
+.text-brand {
+  color: #38d1c5;
+}
+
 @media (max-width: 1190px) {
   .card-main-md {
     height: 480px !important;

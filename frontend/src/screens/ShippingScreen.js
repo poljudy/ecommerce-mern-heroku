@@ -8,7 +8,7 @@ import { saveShippingAddress } from '../actions/cartActions'
 
 const ShippingScreen = ({ history }) => {
   const cart = useSelector((state) => state.cart)
-  const { shippingAddress } = cart
+  const { shippingAddress, cartItems } = cart
 
   const userLogin = useSelector((state) => state.userLogin)
   const { userInfo } = userLogin
@@ -23,6 +23,10 @@ const ShippingScreen = ({ history }) => {
       history.push('/cart')
     }
 
+    if (cartItems.length === 0) {
+      history.push('/')
+    }
+
     if (shippingAddress !== null) {
       setAddress(shippingAddress.address)
       setCity(shippingAddress.city)
@@ -34,7 +38,7 @@ const ShippingScreen = ({ history }) => {
       setPostalCode(userInfo.address.postalCode)
       setPhoneNumber(userInfo.address.phoneNumber)
     }
-  }, [history, userInfo, shippingAddress])
+  }, [history, userInfo, shippingAddress, cartItems])
 
   const dispatch = useDispatch()
 
