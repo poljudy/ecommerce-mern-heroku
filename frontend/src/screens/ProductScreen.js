@@ -62,9 +62,8 @@ const ProductScreen = ({ history, match }) => {
           {!product ? `זץ - כי לקנות פה יתן לך זץ` : `זץ | ${product.name}`}
         </title>
       </Helmet>
-      <Link className='btn btn-primary my-3' to='/'>
-        חזרה
-      </Link>
+      <Button onClick={() => history.goBack()}>חזרה</Button>
+
       {loading ? (
         <Spinner />
       ) : error ? (
