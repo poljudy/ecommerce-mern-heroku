@@ -149,14 +149,10 @@ const OrdersListScreen = ({ history }) => {
                         </span>
                       </td>
                       <td
-                        onClick={() =>
-                          history.push(`/admin/user/${order.user._id}/edit`)
-                        }
-                        className='product-link'
+                        onClick={() => history.push(`/order/${order._id}`)}
+                        className='order-link'
                       >
-                        <span title='מעבר לדף עריכת משתמש'>
-                          {order.user.name}
-                        </span>
+                        <span title='מעבר לפרטי ההזמנה'>{order.user.name}</span>
                       </td>
                       <td
                         onClick={() => history.push(`/order/${order._id}`)}
