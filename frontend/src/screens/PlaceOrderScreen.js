@@ -236,14 +236,27 @@ const PlaceOrderScreen = ({ history }) => {
                 </ListGroup.Item>
               )}
               <ListGroup.Item>
-                <Button
-                  type='button'
-                  className='btn-brand btn-block'
-                  disabled={cart.cartItems === 0}
-                  onClick={placeOrderHandler}
-                >
-                  ביצוע ההזמנה
-                </Button>
+                {cart.cartItems.length > 0 ? (
+                  <Button
+                    type='button'
+                    className='btn-brand btn-block'
+                    onClick={placeOrderHandler}
+                  >
+                    ביצוע ההזמנה
+                  </Button>
+                ) : (
+                  <Button
+                    type='button'
+                    className='btn-brand btn-block'
+                    disabled
+                    style={{
+                      color: '#5b6671',
+                      cursor: 'not-allowed',
+                    }}
+                  >
+                    ביצוע ההזמנה
+                  </Button>
+                )}
               </ListGroup.Item>
             </ListGroup>
           </Card>

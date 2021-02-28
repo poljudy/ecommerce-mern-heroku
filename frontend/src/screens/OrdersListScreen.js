@@ -8,7 +8,7 @@ import Spinner from '../components/layout/Spinner'
 import { getAllOrders, deleteOrder } from '../actions/orderActions'
 import { ORDER_DELIVERED_RESET } from '../constants/orderConstants'
 
-const OrdersListScreen = ({ history, match }) => {
+const OrdersListScreen = ({ history }) => {
   const [successDelivered, setSuccessDelivered] = useState(false)
 
   const dispatch = useDispatch()

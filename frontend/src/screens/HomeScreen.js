@@ -1,6 +1,6 @@
 import React, { useEffect } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
-import { Row, Col, ListGroup } from 'react-bootstrap'
+import { Row, Col, ListGroup, Button } from 'react-bootstrap'
 import { Helmet } from 'react-helmet'
 import Product from '../components/Product'
 import { listProducts } from '../actions/productActions'
@@ -57,7 +57,13 @@ const HomeScreen = ({ match, history }) => {
         </Message>
       ) : (
         <>
-          {keyword && products.length > 0 && <h3>תוצאות חיפוש ל"{keyword}"</h3>}
+          {keyword && products.length > 0 && (
+            <>
+              <Button onClick={() => history.goBack()}>חזרה</Button>
+
+              <h3>תוצאות חיפוש ל"{keyword}"</h3>
+            </>
+          )}
           <Row>
             {products.length > 0 ? (
               products

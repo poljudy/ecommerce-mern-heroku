@@ -108,7 +108,7 @@ const OrderScreen = ({ history, match }) => {
     if (userInfo && userInfo.isAdmin) {
       history.goBack()
     } else {
-      history.push('/profile')
+      history.push('/')
     }
   }
 
