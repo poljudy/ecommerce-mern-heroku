@@ -4,6 +4,9 @@
   "description": "",
   "main": "server.js",
   "type": "module",
+  "engines": {
+    "node": "14.15.3"
+  },
   "scripts": {
     "start": "node backend/server",
     "server": "nodemon backend/server",
