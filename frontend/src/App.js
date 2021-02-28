@@ -1,4 +1,4 @@
-import { BrowserRouter as Router, Route } from 'react-router-dom'
+import { BrowserRouter as Router, Route, Switch } from 'react-router-dom'
 import { Container } from 'react-bootstrap'
 import Header from './components/Header'
 import Footer from './components/Footer'
@@ -25,34 +25,44 @@ const App = () => {
       <Header />
       <main className='py-3'>
         <Container>
-          <Route path='/register' component={RegisterScreen} />
-          <Route path='/login' component={LoginScreen} />
-          <Route path='/profile' component={ProfileScreen} />
-          <Route path='/shipping' component={ShippingScreen} />
-          <Route path='/placeorder' component={PlaceOrderScreen} />
-          <Route path='/order/:id' component={OrderScreen} />
-          <Route path='/payment' component={PaymentScreen} />
-          <Route path='/product/:id' component={ProductScreen} />
-          <Route path='/cart/:id?' component={CartScreen} />
-          <Route path='/admin/orders' component={OrdersListScreen} />
-          <Route path='/admin/users' component={UsersListScreen} />
-          <Route
-            path='/admin/products/:pagenumber'
-            component={ProductsListScreen}
-            exact
-          />
-          <Route path='/admin/products' component={ProductsListScreen} exact />
-          <Route path='/admin/user/:id/edit' component={UserEditScreen} />
-          <Route path='/admin/product/:id/edit' component={ProductEditScreen} />
-          <Route path='/search/:keyword' component={HomeScreen} exact />
-          <Route path='/page/:pagenumber' component={HomeScreen} exact />
-          <Route
-            path='search/:keyword/page/:pagenumber'
-            component={HomeScreen}
-            exact
-          />
-          <Route path='/' component={HomeScreen} exact />
-          <Route path='/not-found' component={NotFound} />
+          <Switch>
+            <Route path='/register' component={RegisterScreen} />
+            <Route path='/login' component={LoginScreen} />
+            <Route path='/profile' component={ProfileScreen} />
+            <Route path='/shipping' component={ShippingScreen} />
+            <Route path='/placeorder' component={PlaceOrderScreen} />
+            <Route path='/order/:id' component={OrderScreen} />
+            <Route path='/payment' component={PaymentScreen} />
+            <Route path='/product/:id' component={ProductScreen} />
+            <Route path='/cart/:id?' component={CartScreen} />
+            <Route path='/admin/orders' component={OrdersListScreen} />
+            <Route path='/admin/users' component={UsersListScreen} />
+            <Route
+              path='/admin/products/:pagenumber'
+              component={ProductsListScreen}
+              exact
+            />
+            <Route
+              path='/admin/products'
+              component={ProductsListScreen}
+              exact
+            />
+            <Route path='/admin/user/:id/edit' component={UserEditScreen} />
+            <Route
+              path='/admin/product/:id/edit'
+              component={ProductEditScreen}
+            />
+            <Route path='/search/:keyword' component={HomeScreen} exact />
+            <Route path='/page/:pagenumber' component={HomeScreen} exact />
+            <Route
+              path='search/:keyword/page/:pagenumber'
+              component={HomeScreen}
+              exact
+            />
+            <Route path='/' component={HomeScreen} exact />
+            <Route path='/not-found' component={NotFound} />
+            <Route component={NotFound} />
+          </Switch>
         </Container>
       </main>
       <Footer />
