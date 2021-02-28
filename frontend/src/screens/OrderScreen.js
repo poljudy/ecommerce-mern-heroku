@@ -251,7 +251,7 @@ const OrderScreen = ({ history, match }) => {
                     <Message
                       variant='brand'
                       dismissible={false}
-                      classN='alert-payment'
+                      classN='alert-payment alert-payment-sm'
                     >
                       שולם בתאריך {payedAtDate.toLocaleString('he-IL')}
                     </Message>
