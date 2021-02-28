@@ -16,7 +16,7 @@ const SearchBox = ({ history }) => {
 
   return (
     <Form onSubmit={submitHandler} inline>
-      <div className='input-group'>
+      <div className='input-group input-group-xs'>
         <input
           type='text'
           name='q'

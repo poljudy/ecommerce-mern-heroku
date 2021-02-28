@@ -156,6 +156,13 @@ h2 {
   }
 }
 
+@media (max-width: 580px) {
+  .input-group-xs {
+    width: 60% !important;
+    margin-left: 1rem !important;
+  }
+}
+
 .small {
   font-size: 80%;
   font-weight: 400;
