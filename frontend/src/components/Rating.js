@@ -1,9 +1,9 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 
-const Rating = ({ value, text, isSmall }) => {
+const Rating = ({ value, text, isSmall, my }) => {
   return (
-    <div className={`rating my-3 ${isSmall ? 'small' : ''}`}>
+    <div className={`rating ${my} ${isSmall ? 'small' : ''}`}>
       <span>
         <i
           className={`${
@@ -66,6 +66,7 @@ const Rating = ({ value, text, isSmall }) => {
 
 Rating.defaultProps = {
   isSmall: true,
+  my: 'my-3',
 }
 
 Rating.propTypes = {

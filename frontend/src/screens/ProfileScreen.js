@@ -4,6 +4,7 @@ import { Link } from 'react-router-dom'
 import { LinkContainer } from 'react-router-bootstrap'
 import NumberFormat from 'react-number-format'
 import { useDispatch, useSelector } from 'react-redux'
+import { Helmet } from 'react-helmet'
 import Spinner from '../components/layout/Spinner'
 import Message from '../components/Message'
 import { getUserDetails, updateUserProfile } from '../actions/userActions'
@@ -89,6 +90,9 @@ const ProfileScreen = ({ history }) => {
 
   return (
     <>
+      <Helmet>
+        <title>זץ | אזור אישי</title>
+      </Helmet>
       <h1>
         <strong>אזור אישי</strong>
       </h1>

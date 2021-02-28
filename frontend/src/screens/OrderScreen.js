@@ -4,6 +4,7 @@ import { PayPalButton } from 'react-paypal-button-v2'
 import { Link } from 'react-router-dom'
 import { Row, Col, ListGroup, Image, Card, Button } from 'react-bootstrap'
 import { useDispatch, useSelector } from 'react-redux'
+import { Helmet } from 'react-helmet'
 import NumberFormat from 'react-number-format'
 import Message from '../components/Message'
 import Spinner from '../components/layout/Spinner'
@@ -113,6 +114,11 @@ const OrderScreen = ({ history, match }) => {
 
   return (
     <>
+      <Helmet>
+        <title>
+          {order ? `זץ | הזמנה מספר ${order._id.slice(17, 24)}` : `זץ | הזמנה`}
+        </title>
+      </Helmet>
       {(userInfo && userInfo.isAdmin) || <CheckoutSteps step1 step2 step4 />}
 
       {userInfo && userInfo.isAdmin && (
@@ -135,7 +141,9 @@ const OrderScreen = ({ history, match }) => {
         </Message>
       ) : (
         <>
-          <h1>הזמנה מספר {order._id.slice(17, 24)}</h1>
+          <h1 style={{ color: '#AAAAAA' }}>
+            הזמנה מספר {order._id.slice(17, 24)}
+          </h1>
           <Row>
             <Col md={8}>
               <ListGroup variant='flush'>
@@ -204,7 +212,10 @@ const OrderScreen = ({ history, match }) => {
                           fontWeight: 'bold',
                         }}
                       >
-                        <h3 className='text-center'>
+                        <h3
+                          className='text-center'
+                          style={{ color: '#272B30' }}
+                        >
                           האתר הינו אתר דמו והוא אינו חנות אמיתית
                         </h3>
                         <p className='mb-0'>

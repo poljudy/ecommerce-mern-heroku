@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react'
 import { Form, Button } from 'react-bootstrap'
 import { useDispatch, useSelector } from 'react-redux'
 import FormContainer from '../components/FormContainer'
+import { Helmet } from 'react-helmet'
 import CheckoutSteps from '../components/CheckoutSteps'
 import { saveShippingAddress } from '../actions/cartActions'
 
@@ -52,13 +53,18 @@ const ShippingScreen = ({ history }) => {
 
   return (
     <>
+      <Helmet>
+        <title>זץ | כתובת למשלוח</title>
+      </Helmet>
       <CheckoutSteps
         step1
         step2
         step4={shippingAddress !== null && shippingAddress.address}
       />
       <FormContainer>
-        <h1 className='mb-n3'>כתובת למשלוח</h1>
+        <h1 className='mb-n3' style={{ color: '#AAAAAA' }}>
+          כתובת למשלוח
+        </h1>
         <small>* שדות חובה</small>
         <Form onSubmit={submitHandler} className='mt-3'>
           <Form.Group controlId='address'>

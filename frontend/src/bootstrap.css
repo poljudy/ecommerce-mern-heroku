@@ -3133,14 +3133,14 @@ fieldset:disabled a.btn {
 }
 
 .btn-outline-success {
-  color: #62c462;
-  border-color: #62c462;
+  color: #53dbb2;
+  border-color: #53dbb2 !important;
 }
 
 .btn-outline-success:hover {
-  color: #fff;
-  background-color: #62c462;
-  border-color: #62c462;
+  color: #214638;
+  background-image: linear-gradient(#7deb94, #53dbb2 60%, #38d1c5);
+  border-color: #53dbb2;
 }
 
 .btn-outline-success:focus,
@@ -6966,7 +6966,7 @@ a.close.disabled {
   align-items: center;
   -ms-flex-pack: center;
   justify-content: center;
-  width: 15%;
+  width: 4%;
   color: #fff;
   text-align: center;
   opacity: 0.5;
@@ -6991,11 +6991,11 @@ a.close.disabled {
 }
 
 .carousel-control-prev {
-  left: 0;
+  left: -3.44rem;
 }
 
 .carousel-control-next {
-  right: 0;
+  right: -3.44rem;
 }
 
 .carousel-control-prev-icon,
@@ -7017,7 +7017,7 @@ a.close.disabled {
 .carousel-indicators {
   position: absolute;
   right: 0;
-  bottom: 0;
+  bottom: -13px;
   left: 0;
   z-index: 15;
   display: -ms-flexbox;
@@ -7040,7 +7040,7 @@ a.close.disabled {
   margin-left: 3px;
   text-indent: -999px;
   cursor: pointer;
-  background-color: #fff;
+  background-color: #aaaaaa;
   background-clip: padding-box;
   border-top: 10px solid transparent;
   border-bottom: 10px solid transparent;
@@ -7060,14 +7060,14 @@ a.close.disabled {
 
 .carousel-caption {
   position: absolute;
-  right: 15%;
-  bottom: 20px;
-  left: 15%;
+  right: 48%;
+  top: 7%;
   z-index: 10;
   padding-top: 20px;
   padding-bottom: 20px;
   color: #fff;
-  text-align: center;
+  width: 35%;
+  text-align: right;
 }
 
 @-webkit-keyframes spinner-border {
@@ -8705,8 +8705,13 @@ button.bg-dark:focus {
   margin-top: 1.5rem !important;
 }
 
+.my-4_5,
 .mt-4_5 {
   margin-top: 1.95rem !important;
+}
+
+.my-4_5 {
+  margin-bottom: 1.95rem !important;
 }
 
 .mr-4,

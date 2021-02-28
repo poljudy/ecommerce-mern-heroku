@@ -4,6 +4,7 @@ import NumberFormat from 'react-number-format'
 import { LinkContainer } from 'react-router-bootstrap'
 import { Form, Col, Row, Button, Table } from 'react-bootstrap'
 import { useDispatch, useSelector } from 'react-redux'
+import { Helmet } from 'react-helmet'
 import Message from '../components/Message'
 import FormContainer from '../components/FormContainer'
 import Spinner from '../components/layout/Spinner'
@@ -77,6 +78,9 @@ const UserEditScreen = ({ match, history }) => {
 
   return (
     <>
+      <Helmet>
+        <title>זץ | עריכת משתמש {!user ? '' : user.name} </title>
+      </Helmet>
       <Button onClick={() => history.goBack()}>חזרה</Button>
       {deleteOrderMessage && (
         <Message
@@ -92,7 +96,7 @@ const UserEditScreen = ({ match, history }) => {
           <Row>
             <Col md={3}>
               {' '}
-              <h1>עריכת משתמש</h1>
+              <h1 style={{ color: '#AAAAAA' }}>עריכת משתמש</h1>
               {loadingUpdate ? (
                 <Spinner />
               ) : loading ? (
@@ -170,7 +174,7 @@ const UserEditScreen = ({ match, history }) => {
               </Message>
             )}
             <Col md={9}>
-              <h1>הזמנות</h1>
+              <h1 style={{ color: '#AAAAAA' }}>הזמנות</h1>
               <Table striped bordered hover responsive className='table-sm'>
                 <thead>
                   <tr>
@@ -294,7 +298,7 @@ const UserEditScreen = ({ match, history }) => {
         </>
       ) : (
         <FormContainer>
-          <h1>עריכת משתמש</h1>
+          <h1 style={{ color: '#AAAAAA' }}>עריכת משתמש</h1>
           {loadingUpdate ? (
             <Spinner />
           ) : loading ? (

@@ -3,6 +3,7 @@ import { Link } from 'react-router-dom'
 import { Button, Row, Col, ListGroup, Image, Card, Form } from 'react-bootstrap'
 import { useDispatch, useSelector } from 'react-redux'
 import NumberFormat from 'react-number-format'
+import { Helmet } from 'react-helmet'
 import Message from '../components/Message'
 import CheckoutSteps from '../components/CheckoutSteps'
 import PayPal from '../images/paypal.png'
@@ -72,6 +73,9 @@ const PlaceOrderScreen = ({ history }) => {
 
   return (
     <>
+      <Helmet>
+        <title>זץ | ביצוע הזמנה</title>
+      </Helmet>
       <CheckoutSteps step1 step2 step4 />
       <Row>
         <Col md={8}>

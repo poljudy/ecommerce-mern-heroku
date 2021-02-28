@@ -1,7 +1,8 @@
 import axios from 'axios'
 import React, { useState, useEffect } from 'react'
-import { Form, Button, Row, Col, Image, ListGroup } from 'react-bootstrap'
+import { Form, Button, Image, ListGroup } from 'react-bootstrap'
 import { useDispatch, useSelector } from 'react-redux'
+import { Helmet } from 'react-helmet'
 import Message from '../components/Message'
 import FormContainer from '../components/FormContainer'
 import Spinner from '../components/layout/Spinner'
@@ -120,6 +121,9 @@ const ProductEditScreen = ({ match, history }) => {
 
   return (
     <>
+      <Helmet>
+        <title>זץ | עריכת מוצר {!product ? '' : `"${product.name}"`} </title>
+      </Helmet>
       <Button onClick={() => history.push('/admin/products')} className='mx-1'>
         חזרה
       </Button>
@@ -158,13 +162,18 @@ const ProductEditScreen = ({ match, history }) => {
         </Message>
       ) : (
         <>
-          <FormContainer md={10}>
+          <FormContainer md={8}>
             <ListGroup>
               <ListGroup.Item>
                 <h1 className='text-center'>עריכת מוצר</h1>
               </ListGroup.Item>
               <ListGroup.Item className='text-center'>
-                <Image src={image} alt={name} rounded />
+                <Image
+                  src={image}
+                  alt={name}
+                  rounded
+                  style={{ width: '100%' }}
+                />
               </ListGroup.Item>
 
               <ListGroup.Item>

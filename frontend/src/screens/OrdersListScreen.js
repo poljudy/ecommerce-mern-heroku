@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react'
 import { Table } from 'react-bootstrap'
 import { useDispatch, useSelector } from 'react-redux'
 import NumberFormat from 'react-number-format'
+import { Helmet } from 'react-helmet'
 import Message from '../components/Message'
 import Spinner from '../components/layout/Spinner'
 import { getAllOrders, deleteOrder } from '../actions/orderActions'
@@ -51,7 +52,10 @@ const OrdersListScreen = ({ history, match }) => {
 
   return (
     <>
-      <h1>רשימת הזמנות</h1>
+      <Helmet>
+        <title>זץ | רשימת הזמנות</title>
+      </Helmet>
+      <h1 style={{ color: '#AAAAAA' }}>רשימת הזמנות</h1>
 
       {loading ? (
         <Spinner />

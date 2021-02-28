@@ -1,6 +1,7 @@
 import React, { useEffect } from 'react'
 import { Link } from 'react-router-dom'
 import { useDispatch, useSelector } from 'react-redux'
+import { Helmet } from 'react-helmet'
 import { Row, Col, ListGroup, Image, Form, Button, Card } from 'react-bootstrap'
 import CheckoutSteps from '../components/CheckoutSteps'
 import Message from '../components/Message'
@@ -43,6 +44,9 @@ const CartScreen = ({ match, location, history }) => {
 
   return (
     <>
+      <Helmet>
+        <title>זץ | עגלת קניות</title>
+      </Helmet>
       {cartItems.length === 0 && (
         <Button onClick={() => history.push('/')}>חזרה</Button>
       )}
@@ -61,9 +65,9 @@ const CartScreen = ({ match, location, history }) => {
           }
         />
       )}
-      <Row>
+      <Row className='mt-4'>
         <Col md={8}>
-          <h1>עגלת קניות</h1>
+          <h1 style={{ color: '#AAAAAA' }}>עגלת קניות</h1>
           {cartItems.length === 0 ? (
             <>
               <Message variant='brand' dismissible={false}>
@@ -161,7 +165,7 @@ const CartScreen = ({ match, location, history }) => {
                       )}{' '}
                       מוצרים
                     </h2>
-                    <h1>
+                    <h1 style={{ color: '#AAAAAA' }}>
                       {cartItems
                         .reduce((acc, item) => acc + item.qty * item.price, 0)
                         .toLocaleString('he-IL')}{' '}

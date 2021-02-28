@@ -2,6 +2,7 @@ import React, { useEffect } from 'react'
 import { LinkContainer } from 'react-router-bootstrap'
 import { Table } from 'react-bootstrap'
 import { useDispatch, useSelector } from 'react-redux'
+import { Helmet } from 'react-helmet'
 import Message from '../components/Message'
 import Spinner from '../components/layout/Spinner'
 import { listUsers, deleteUser } from '../actions/userActions'
@@ -38,7 +39,10 @@ const UsersListScreen = ({ history }) => {
 
   return (
     <>
-      <h1>משתמשים</h1>
+      <Helmet>
+        <title>זץ | רשימת משתמשים</title>
+      </Helmet>
+      <h1 style={{ color: '#AAAAAA' }}>רשימת משתמשים</h1>
       {loading ? (
         <Spinner />
       ) : (
