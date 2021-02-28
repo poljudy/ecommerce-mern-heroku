@@ -239,10 +239,10 @@ const ProfileScreen = ({ history }) => {
                     <th>מספר הזמנה</th>
                     <th>תאריך ביצוע ההזמנה</th>
                     <th>סה"כ מחיר ההזמנה</th>
-                    <th className='sm=hide'>סטטוס תשלום</th>
-                    <th>תאריך ביצוע התשלום</th>
-                    <th className='sm=hide'>סטטוס משלוח</th>
-                    <th>תאריך שליחת ההזמנה</th>
+                    <th className='sm-hide'>סטטוס תשלום</th>
+                    <th className='sm-hide'>תאריך ביצוע התשלום</th>
+                    <th className='sm-hide'>סטטוס משלוח</th>
+                    <th className='sm-hide'>תאריך שליחת ההזמנה</th>
                     <th>מעבר לפרטי הזמנה</th>
                     <th>ביטול הזמנה</th>
                   </tr>
@@ -281,7 +281,7 @@ const ProfileScreen = ({ history }) => {
                           ש"ח
                         </Link>
                       </td>
-                      <td className='sm=hide'>
+                      <td className='sm-hide'>
                         {order.isPaid ? (
                           <Link to={`/order/${order._id}`}>
                             <i
@@ -298,7 +298,7 @@ const ProfileScreen = ({ history }) => {
                           </Link>
                         )}
                       </td>
-                      <td>
+                      <td className='sm-hide'>
                         <Link to={`/order/${order._id}`}>
                           {order.isPaid &&
                             new Date(
@@ -306,7 +306,7 @@ const ProfileScreen = ({ history }) => {
                             ).toLocaleDateString('he-IL')}
                         </Link>
                       </td>
-                      <td className='sm=hide'>
+                      <td className='sm-hide'>
                         {order.isDelivered ? (
                           <Link to={`/order/${order._id}`}>
                             <i
@@ -323,7 +323,7 @@ const ProfileScreen = ({ history }) => {
                           </Link>
                         )}
                       </td>
-                      <td>
+                      <td className='sm-hide'>
                         <Link to={`/order/${order._id}`}>
                           {order.isDelivered &&
                             new Date(

@@ -88,7 +88,7 @@ const UsersListScreen = ({ history }) => {
                 <tr style={{ textAlign: 'center' }}>
                   <th className='hide-sm'>זיהוי משתמש</th>
                   <th>שם</th>
-                  <th>דוא"ל</th>
+                  <th className='hide-sm'>דוא"ל</th>
                   <th>מנהל מערכת</th>
                   <th>קיימות הזמנות</th>
                   <th>קיימת הזמנה משולמת</th>
@@ -102,7 +102,7 @@ const UsersListScreen = ({ history }) => {
                     <tr key={user._id}>
                       <td className='hide-sm'>{user._id.slice(17, 24)}</td>
                       <td>{user.name}</td>
-                      <td>
+                      <td className='hide-sm'>
                         <a
                           href={`mailto:${user.email}`}
                           style={{ color: '#AAAAAA' }}

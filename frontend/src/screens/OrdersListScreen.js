@@ -109,7 +109,10 @@ const OrdersListScreen = ({ history }) => {
                   <th style={{ width: '7rem' }}>מספר הזמנה</th>
                   <th style={{ width: '8rem' }}>תאריך הזמנה</th>
                   <th style={{ width: '8rem' }}>שם לקוח</th>
-                  <th style={{ textAlign: 'right', width: '18rem' }}>
+                  <th
+                    style={{ textAlign: 'right', width: '18rem' }}
+                    className='hide-sm'
+                  >
                     כתובת לקוח
                   </th>
                   <th className='hide-sm hide-md'>מוצרים בהזמנה</th>
@@ -157,7 +160,7 @@ const OrdersListScreen = ({ history }) => {
                       </td>
                       <td
                         onClick={() => history.push(`/order/${order._id}`)}
-                        className='order-link text-right'
+                        className='order-link text-right hide-sm'
                       >
                         <span title='מעבר לפרטי ההזמנה'>
                           {order.shippingAddress.address}{' '}

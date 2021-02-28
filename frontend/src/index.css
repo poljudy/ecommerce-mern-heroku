@@ -166,13 +166,6 @@ h2 {
   }
 }
 
-@media (max-width: 580px) {
-  .input-group-xs {
-    width: 60% !important;
-    margin-left: 1rem !important;
-  }
-}
-
 .small {
   font-size: 80%;
   font-weight: 400;
@@ -470,4 +463,22 @@ input {
   z-index: 1000;
   left: 31px;
   top: 12px;
+}
+
+@media (max-width: 580px) {
+  .input-group-xs {
+    width: 60% !important;
+    margin-left: 1rem !important;
+  }
+
+  .alert-payment-sm {
+    width: 55% !important;
+    display: block !important;
+    margin: auto !important;
+    text-align: center;
+    z-index: 10;
+    margin-bottom: 0.75rem;
+    margin-top: 1rem !important;
+    bottom: 0 !important;
+  }
 }

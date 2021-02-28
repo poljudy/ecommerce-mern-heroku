@@ -79,7 +79,9 @@ const UserEditScreen = ({ match, history }) => {
   return (
     <>
       <Helmet>
-        <title>זץ | עריכת משתמש {!user ? '' : user.name} </title>
+        <title>
+          {user ? `זץ | עריכת משתמש ${user.name}` : 'זץ | עריכת משתמש'}
+        </title>
       </Helmet>
       <Button onClick={() => history.goBack()}>חזרה</Button>
       {deleteOrderMessage && (
@@ -178,21 +180,21 @@ const UserEditScreen = ({ match, history }) => {
               <Table striped bordered hover responsive className='table-sm'>
                 <thead>
                   <tr>
-                    <th>מספר הזמנה</th>
+                    <th className='sm-hide'>מספר הזמנה</th>
                     <th>תאריך ביצוע ההזמנה</th>
                     <th>סה"כ מחיר ההזמנה</th>
                     <th className='sm=hide'>סטטוס תשלום</th>
-                    <th>תאריך ביצוע התשלום</th>
+                    <th className='sm-hide'>תאריך ביצוע התשלום</th>
                     <th className='sm=hide'>סטטוס משלוח</th>
-                    <th>תאריך שליחת ההזמנה</th>
+                    <th className='sm-hide'>תאריך שליחת ההזמנה</th>
                     <th>מעבר לפרטי הזמנה</th>
-                    <th>ביטול הזמנה</th>
+                    <th className='sm-hide'>ביטול הזמנה</th>
                   </tr>
                 </thead>
                 <tbody>
                   {orders.map((order) => (
                     <tr key={order._id}>
-                      <td>
+                      <td className='sm-hide'>
                         <Link to={`/order/${order._id}`}>
                           {order._id.slice(17, 24)}
                         </Link>
@@ -240,7 +242,7 @@ const UserEditScreen = ({ match, history }) => {
                           </Link>
                         )}
                       </td>
-                      <td>
+                      <td className='sm-hide'>
                         <Link to={`/order/${order._id}`}>
                           {order.isPaid &&
                             new Date(
@@ -265,7 +267,7 @@ const UserEditScreen = ({ match, history }) => {
                           </Link>
                         )}
                       </td>
-                      <td>
+                      <td className='sm-hide'>
                         <Link to={`/order/${order._id}`}>
                           {order.isDelivered &&
                             new Date(
@@ -278,11 +280,11 @@ const UserEditScreen = ({ match, history }) => {
                           <Button className='btn-sm'>פרטים</Button>
                         </LinkContainer>
                       </td>
-                      <td>
+                      <td className='sm-hide'>
                         {!order.isPaid && (
                           <i
                             className='fas fa-trash-alt'
-                            style={{ color: '#AAAAAA' }}
+                            style={{ color: 'red' }}
                             onClick={() =>
                               dispatch(deleteOrder(order._id, order.user))
                             }

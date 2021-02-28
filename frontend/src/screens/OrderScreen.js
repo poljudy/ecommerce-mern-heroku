@@ -259,7 +259,7 @@ const OrderScreen = ({ history, match }) => {
                     <Message
                       variant='danger'
                       dismissible={false}
-                      classN='alert-payment'
+                      classN='alert-payment alert-payment-sm'
                     >
                       טרם שולם
                     </Message>
