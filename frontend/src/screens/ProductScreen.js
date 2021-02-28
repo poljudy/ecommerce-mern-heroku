@@ -152,7 +152,7 @@ const ProductScreen = ({ history, match }) => {
                       .map((review) => (
                         <ListGroup.Item key={review._id}>
                           <h5>{review.comment}</h5>
-                          <Rating value={review.rating} my='mt-2' />
+                          <Rating value={review.rating} my='mb-2' />
                           <strong>{review.name}</strong>
                           <p>
                             {new Date(
