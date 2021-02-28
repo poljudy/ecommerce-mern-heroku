@@ -82,6 +82,11 @@ h2 {
     top: 0;
   }
 
+  .product-add-message-md {
+    top: 100px !important;
+    left: 16rem !important;
+  }
+
   .carousel-caption-sm h2 {
     font-size: 1rem !important;
     line-height: 1.5;
@@ -119,6 +124,11 @@ h2 {
   }
   .mt-4-sm {
     margin-top: 1.5rem !important;
+  }
+
+  .product-add-message-sm {
+    top: 100px !important;
+    left: 11rem !important;
   }
 
   .carousel-caption-xs h2 {
@@ -298,6 +308,18 @@ h2 {
   left: 0rem;
 }
 
+.product-add-message {
+  width: 40%;
+  display: block;
+  margin: auto !important;
+  text-align: center;
+  margin-bottom: 0.75rem;
+  position: absolute;
+  z-index: 10;
+  top: 99px;
+  left: 26.5rem;
+}
+
 .alert-user-list {
   width: 35%;
   display: block;
@@ -390,6 +412,8 @@ h2 {
   position: absolute;
   top: 1.37rem;
   left: -1rem;
+  background-image: linear-gradient(#7deb94, #53dbb2 60%, #38d1c5);
+  color: #214638;
 }
 
 .link {

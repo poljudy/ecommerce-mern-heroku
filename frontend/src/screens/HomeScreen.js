@@ -16,13 +16,19 @@ const HomeScreen = ({ match, history }) => {
 
   const dispatch = useDispatch()
 
-  const productList = useSelector((state) => state.productList)
+  const cart = useSelector((state) => state.cart)
+  const { toast } = cart
 
+  const productList = useSelector((state) => state.productList)
   const { loading, error, products, pages, page } = productList
 
   useEffect(() => {
     dispatch(listProducts(keyword, pageNumber))
-  }, [dispatch, keyword, pageNumber])
+
+    if (toast) {
+      window.scrollTo(0, 0)
+    }
+  }, [dispatch, keyword, pageNumber, toast])
 
   return (
     <>

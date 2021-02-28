@@ -4,7 +4,7 @@ import PropTypes from 'prop-types'
 import Rating from './Rating'
 import AddToCartBtn from './AddToCartBtn'
 
-const Product = ({ product, history }) => {
+const Product = ({ product }) => {
   return (
     <Card className='my-3 p-3 rounded card-main card-main-sm card-main-md'>
       <Link to={`/product/${product._id}`}>
@@ -30,6 +30,7 @@ const Product = ({ product, history }) => {
           {product.price.toLocaleString('he-IL')} ש"ח{' '}
           <small>{product.countInStock === 0 && ` (חסר במלאי)`}</small>
         </Card.Text>
+
         <AddToCartBtn disabled={product.countInStock === 0} id={product._id} />
       </Card.Body>
     </Card>
