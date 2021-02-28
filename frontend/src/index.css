@@ -57,115 +57,6 @@ h2 {
   height: 530px !important;
 }
 
-@media (max-width: 1150px) {
-  .list-group-home-md {
-    height: 480px !important;
-  }
-}
-
-@media (max-width: 1190px) {
-  .card-main-md {
-    height: 480px !important;
-  }
-
-  .form-control-lg {
-    width: 125% !important;
-  }
-}
-
-@media (max-width: 985px) {
-  .list-group-home-sm {
-    height: auto !important;
-  }
-
-  .carousel-caption-sm {
-    top: 0;
-  }
-
-  .product-add-message-md {
-    top: 100px !important;
-    left: 16rem !important;
-  }
-
-  .carousel-caption-sm h2 {
-    font-size: 1rem !important;
-    line-height: 1.5;
-  }
-
-  .form-control-md {
-    width: 210% !important;
-  }
-
-  .sm-hide {
-    display: none !important;
-  }
-
-  .hide-md {
-    display: none !important;
-  }
-
-  .icon-md {
-    margin-right: 1.25rem;
-  }
-}
-
-@media (max-width: 1000px) {
-  .toast-md {
-    position: static !important;
-    margin-right: -19.5rem !important;
-    background-image: linear-gradient(#7deb94, #53dbb2 60%, #38d1c5);
-    color: #214638;
-  }
-}
-
-@media (max-width: 770px) {
-  .mt-1-sm {
-    margin-top: 0.5rem !important;
-  }
-  .mt-4-sm {
-    margin-top: 1.5rem !important;
-  }
-
-  .product-add-message-sm {
-    top: 100px !important;
-    left: 11rem !important;
-  }
-
-  .carousel-caption-xs h2 {
-    font-size: 0.75rem !important;
-    line-height: 1;
-  }
-
-  .hide-sm {
-    display: none !important;
-  }
-
-  .toast-sm {
-    position: static !important;
-    margin-right: -15.5rem !important;
-    background-image: linear-gradient(#7deb94, #53dbb2 60%, #38d1c5);
-    color: #214638;
-  }
-
-  .card-main-sm {
-    height: 610px !important;
-  }
-
-  .form-control-small {
-    width: 100% !important;
-  }
-
-  .alert-user-list-sm {
-    top: 126px !important;
-    right: 10.5rem !important;
-  }
-
-  .alert-delete-order-sm {
-    top: -542px !important;
-    right: 9rem !important;
-  }
-}
-
 .small {
   font-size: 80%;
   font-weight: 400;
@@ -191,16 +82,6 @@ h2 {
   font-family: 'Kaushan Script', cursive;
   font-size: 4rem;
   color: var(--yellow-color);
-}
-
-@media (max-width: 700px) {
-  .hide-sm {
-    display: none;
-  }
-
-  .mt-4-sm {
-    margin-top: 1.5rem !important;
-  }
 }
 
 .card-main {
@@ -465,10 +346,34 @@ input {
   top: 12px;
 }
 
-@media (max-width: 580px) {
-  .input-group-xs {
-    width: 60% !important;
-    margin-left: 1rem !important;
+@media (max-width: 1190px) {
+  .card-main-md {
+    height: 480px !important;
+  }
+
+  .form-control-lg {
+    width: 125% !important;
+  }
+}
+
+@media (max-width: 1150px) {
+  .list-group-home-md {
+    height: 480px !important;
+  }
+}
+
+@media (max-width: 1000px) {
+  .toast-md {
+    position: static !important;
+    margin-right: -19.5rem !important;
+    background-image: linear-gradient(#7deb94, #53dbb2 60%, #38d1c5);
+    color: #214638;
+  }
+}
+
+@media (max-width: 985px) {
+  .list-group-home-sm {
+    height: auto !important;
   }
 
   .alert-payment-sm {
@@ -480,5 +385,100 @@ input {
     margin-bottom: 0.75rem;
     margin-top: 1rem !important;
     bottom: 0 !important;
+  }
+
+  .carousel-caption-sm {
+    top: 0;
+  }
+
+  .product-add-message-md {
+    top: 100px !important;
+    left: 16rem !important;
+  }
+
+  .carousel-caption-sm h2 {
+    font-size: 1rem !important;
+    line-height: 1.5;
+  }
+
+  .form-control-md {
+    width: 210% !important;
+  }
+
+  .sm-hide {
+    display: none !important;
+  }
+
+  .hide-md {
+    display: none !important;
+  }
+
+  .icon-md {
+    margin-right: 1.25rem;
+  }
+}
+
+@media (max-width: 770px) {
+  .mt-1-sm {
+    margin-top: 0.5rem !important;
+  }
+  .mt-4-sm {
+    margin-top: 1.5rem !important;
+  }
+
+  .product-add-message-sm {
+    top: 100px !important;
+    left: 11rem !important;
+  }
+
+  .carousel-caption-xs h2 {
+    font-size: 0.75rem !important;
+    line-height: 1;
+  }
+
+  .hide-sm {
+    display: none !important;
+  }
+
+  .toast-sm {
+    position: static !important;
+    margin-right: -15.5rem !important;
+    background-image: linear-gradient(#7deb94, #53dbb2 60%, #38d1c5);
+    color: #214638;
+  }
+
+  .card-main-sm {
+    height: 610px !important;
+  }
+
+  .form-control-small {
+    width: 100% !important;
+  }
+
+  .alert-user-list-sm {
+    top: 126px !important;
+    right: 10.5rem !important;
+  }
+
+  .alert-delete-order-sm {
+    top: -542px !important;
+    right: 9rem !important;
+  }
+}
+
+@media (max-width: 700px) {
+  .hide-sm {
+    display: none;
+  }
+
+  .mt-4-sm {
+    margin-top: 1.5rem !important;
+  }
+}
+
+@media (max-width: 580px) {
+  .input-group-xs {
+    width: 60% !important;
+    margin-left: 1rem !important;
   }
 }
