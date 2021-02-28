@@ -53,7 +53,6 @@ const App = () => {
           />
           <Route path='/' component={HomeScreen} exact />
           <Route path='/not-found' component={NotFound} />
-          <Route component={NotFound} />
         </Container>
       </main>
       <Footer />
