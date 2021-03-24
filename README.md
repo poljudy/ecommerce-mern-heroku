@@ -6,8 +6,6 @@
 
 https://obrm-zetz-shop.herokuapp.com/
 
-![screenshot](https://obrm-zetz-shop.herokuapp.com/uploads/image-1614508914827.png)
-
 ## Features
 
 - Full featured shopping cart
