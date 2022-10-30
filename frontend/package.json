@@ -1,6 +1,6 @@
 {
   "name": "fronend",
-  "proxy": "https://obrm-zetz-shop-api.onrender.com:5000",
+  "proxy": "18.156.158.53:5000",
   "version": "0.1.0",
   "private": true,
   "dependencies": {
