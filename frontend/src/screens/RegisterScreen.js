@@ -1,7 +1,6 @@
 import React, { useState, useEffect } from 'react'
 import { Link } from 'react-router-dom'
 import { Form, Button, Row, Col } from 'react-bootstrap'
-import { GoogleLogin } from 'react-google-login'
 import { useDispatch, useSelector } from 'react-redux'
 import { Helmet } from 'react-helmet'
 import Message from '../components/Message'
