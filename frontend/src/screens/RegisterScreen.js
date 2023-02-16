@@ -63,26 +63,6 @@ const RegisterScreen = ({ location, history }) => {
     }
   }
 
-  const googleLogin = (response) => {
-    const {
-      profileObj: { email, name },
-      googleId,
-    } = response
-
-    setGoogleEmail(email)
-    setGoogleId(googleId)
-
-    if (email) {
-      setLoginSuccess(true)
-      dispatch(register(name, email, googleId))
-    } else {
-      setMessage('חלה שגיאה. יש לנסות שוב')
-      setTimeout(() => {
-        setMessage(null)
-      }, 2500)
-    }
-  }
-
   return (
     <>
       <Helmet>
@@ -99,15 +79,7 @@ const RegisterScreen = ({ location, history }) => {
             {error}
           </Message>
         )}
-        {loading && <Spinner />}
-        {/* <GoogleLogin
-          clientId='816282195701-kdd4l2l5bnun3kbpsq8kqcusfb1cjkcr.apps.googleusercontent.com'
-          onSuccess={googleLogin}
-          onFailure={googleLogin}
-          buttonText='הרשמה באמצעות Google'
-          className='google-login mt-4'
-        />
-        <h1>או הרשמה לאתר</h1> */}
+        {loading && <Spinner />}       
         <h1>הרשמה</h1>
         <Form onSubmit={submitHandler}>
           <Form.Group controlId='name'>
