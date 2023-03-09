@@ -49,15 +49,19 @@ const ProfileScreen = ({ history }) => {
       if (!user || !user.name || success) {
         dispatch({ type: USER_UPDATE_PROFILE_RESET })
         dispatch(getUserDetails('profile'))
-        dispatch(listMyOrders())
+        dispatch(listMyOrders())      
       } else {
-        setName(user.name)
-        setEmail(user.email)
-        if (user.address) {
-          setAddress(user.address.address)
-          setCity(user.address.city)
-          setPostalCode(user.address.postalCode)
-          setPhoneNumber(user.address.phoneNumber)
+        let userObj = { ...user };
+        if (userInfo.isAdmin) {
+          userObj = { ...userInfo, hasOrders: false, hasPaidOrders: false };
+        }
+        setName(userObj.name);
+        setEmail(userObj.email);
+        if (userObj.address) {
+          setAddress(userObj.address.address);
+          setCity(userObj.address.city);
+          setPostalCode(userObj.address.postalCode);
+          setPhoneNumber(userObj.address.phoneNumber)
         }
       }
     }
