@@ -16,16 +16,8 @@
     "data:destroy": "node backend/seeder -d",
     "heroku-postbuild": "NPM_CONFIG_PRODUCTION=false npm install --prefix frontend && npm run build --prefix frontend"
   },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/obrm/zetz-shop.git"
-  },
   "author": "Ori Baram",
   "license": "ISC",
-  "bugs": {
-    "url": "https://github.com/obrm/zetz-shop/issues"
-  },
-  "homepage": "https://github.com/obrm/zetz-shop#readme",
   "dependencies": {
     "bcryptjs": "^2.4.3",
     "colors": "^1.4.0",
